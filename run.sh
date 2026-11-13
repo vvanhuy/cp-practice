@@ -7,7 +7,7 @@ dir=$(dirname "$src"); name=$(basename "$src" .cpp)
 in="${2:-$dir/in.txt}"; ans="${3:-$dir/out.txt}"
 bin="$dir/$name.out"
 
-g++ -std=c++17 -O2 -Wall -Wextra -fsanitize=address,undefined -DLOCAL "$src" -o "$bin" \
+g++ -std=c++17 -O2 -g -Wall -Wextra -fsanitize=address,undefined -DLOCAL "$src" -o "$bin" \
   || { echo "❌ Compile lỗi"; exit 1; }
 
 if [[ ! -f "$in" ]]; then
@@ -18,6 +18,11 @@ start=$(date +%s%N)
 "$bin" < "$in" > "$dir/my.txt"; code=$?
 end=$(date +%s%N)
 echo "⏱  $(( (end - start) / 1000000 )) ms | exit code: $code"
+
+if [[ $code -ne 0 ]]; then
+  echo "💥 RE - chương trình crash (exit code $code), xem lỗi phía trên"
+  exit 1
+fi
 
 if [[ -f "$ans" ]]; then
   if diff -Z "$dir/my.txt" "$ans" > /dev/null; then
