@@ -1,0 +1,9 @@
+{
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "cph.language.cpp.Args": "-std=c++17 -O2 -Wall -fsanitize=address,undefined",
+    "files.exclude": {
+        "**/*.out": true,
+        "**/*.bin": true
+    }
+}
