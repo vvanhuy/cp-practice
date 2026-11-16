@@ -1,0 +1,3226 @@
+[
+ {
+  "date": "2026-10-06",
+  "avg": 1.44,
+  "problems": [
+   {
+    "uva": 10696,
+    "title": "f91",
+    "A": 2967,
+    "B": 2137,
+    "C": 1953,
+    "F": 80.14
+   },
+   {
+    "uva": 10252,
+    "title": "Common Permutation",
+    "A": 2083,
+    "B": 1081,
+    "C": 804,
+    "F": 32.99
+   },
+   {
+    "uva": 10935,
+    "title": "Even Parity",
+    "A": 881,
+    "B": 750,
+    "C": 694,
+    "F": 28.48
+   },
+   {
+    "uva": 10665,
+    "title": "Highways",
+    "A": 120,
+    "B": 60,
+    "C": 13,
+    "F": 0.53
+   },
+   {
+    "uva": 10125,
+    "title": "Sumsets",
+    "A": 823,
+    "B": 232,
+    "C": 34,
+    "F": 1.4
+   },
+   {
+    "uva": 10436,
+    "title": "Dog and Gopher",
+    "A": 37,
+    "B": 22,
+    "C": 11,
+    "F": 0.45
+   },
+   {
+    "uva": 10154,
+    "title": "Weights and Measures",
+    "A": 265,
+    "B": 54,
+    "C": 8,
+    "F": 0.33
+   }
+  ]
+ },
+ {
+  "date": "2026-05-26",
+  "avg": 0.75,
+  "problems": [
+   {
+    "uva": 11639,
+    "title": "Guard the Land",
+    "A": 3586,
+    "B": 1620,
+    "C": 786,
+    "F": 29.69
+   },
+   {
+    "uva": 10189,
+    "title": "Minesweeper",
+    "A": 1466,
+    "B": 998,
+    "C": 865,
+    "F": 32.68
+   },
+   {
+    "uva": 11956,
+    "title": "Brainfuck",
+    "A": 386,
+    "B": 279,
+    "C": 233,
+    "F": 8.8
+   },
+   {
+    "uva": 665,
+    "title": "False coin",
+    "A": 331,
+    "B": 119,
+    "C": 31,
+    "F": 1.17
+   },
+   {
+    "uva": 1062,
+    "title": "Containers",
+    "A": 86,
+    "B": 75,
+    "C": 50,
+    "F": 1.89
+   },
+   {
+    "uva": 297,
+    "title": "Quadtrees",
+    "A": 28,
+    "B": 23,
+    "C": 9,
+    "F": 0.34
+   },
+   {
+    "uva": 11481,
+    "title": "Square Sums",
+    "A": 113,
+    "B": 67,
+    "C": 9,
+    "F": 0.34
+   }
+  ]
+ },
+ {
+  "date": "2026-03-24",
+  "avg": 0.65,
+  "problems": [
+   {
+    "uva": 10591,
+    "title": "Happy Number",
+    "A": 2792,
+    "B": 1410,
+    "C": 898,
+    "F": 32.8
+   },
+   {
+    "uva": 10010,
+    "title": "Where's Waldorf?",
+    "A": 414,
+    "B": 291,
+    "C": 223,
+    "F": 8.14
+   },
+   {
+    "uva": 10226,
+    "title": "Hardwood Species",
+    "A": 1076,
+    "B": 522,
+    "C": 415,
+    "F": 15.16
+   },
+   {
+    "uva": 10365,
+    "title": "Blocks",
+    "A": 265,
+    "B": 182,
+    "C": 119,
+    "F": 4.35
+   },
+   {
+    "uva": 11039,
+    "title": "Building designing",
+    "A": 339,
+    "B": 136,
+    "C": 86,
+    "F": 3.14
+   },
+   {
+    "uva": 11526,
+    "title": "H(n)",
+    "A": 3034,
+    "B": 723,
+    "C": 30,
+    "F": 1.1
+   },
+   {
+    "uva": 12063,
+    "title": "Zeros and Ones",
+    "A": 27,
+    "B": 23,
+    "C": 9,
+    "F": 0.33
+   }
+  ]
+ },
+ {
+  "date": "2025-12-09",
+  "avg": 1.08,
+  "problems": [
+   {
+    "uva": 10079,
+    "title": "Pizza Cutting",
+    "A": 3623,
+    "B": 1776,
+    "C": 1409,
+    "F": 59.28
+   },
+   {
+    "uva": 11321,
+    "title": "Sort! Sort!! And Sort!!!",
+    "A": 1610,
+    "B": 809,
+    "C": 534,
+    "F": 22.47
+   },
+   {
+    "uva": 706,
+    "title": "LC-Display",
+    "A": 419,
+    "B": 380,
+    "C": 327,
+    "F": 13.76
+   },
+   {
+    "uva": 1203,
+    "title": "Argus",
+    "A": 238,
+    "B": 188,
+    "C": 157,
+    "F": 6.6
+   },
+   {
+    "uva": 10405,
+    "title": "Jolly Jumpers",
+    "A": 526,
+    "B": 177,
+    "C": 109,
+    "F": 4.59
+   },
+   {
+    "uva": 11806,
+    "title": "Cheerleaders",
+    "A": 51,
+    "B": 25,
+    "C": 5,
+    "F": 0.21
+   },
+   {
+    "uva": 1660,
+    "title": "Cable TV Network",
+    "A": 38,
+    "B": 31,
+    "C": 16,
+    "F": 0.67
+   }
+  ]
+ },
+ {
+  "date": "2025-09-30",
+  "avg": 1.31,
+  "problems": [
+   {
+    "uva": 100,
+    "title": "The 3n + 1 problem",
+    "A": 3206,
+    "B": 1714,
+    "C": 1466,
+    "F": 59.11
+   },
+   {
+    "uva": 483,
+    "title": "Word Scramble",
+    "A": 1417,
+    "B": 1130,
+    "C": 986,
+    "F": 39.76
+   },
+   {
+    "uva": 673,
+    "title": "Parentheses Balance",
+    "A": 2726,
+    "B": 975,
+    "C": 556,
+    "F": 22.42
+   },
+   {
+    "uva": 417,
+    "title": "Word Index",
+    "A": 278,
+    "B": 207,
+    "C": 153,
+    "F": 6.17
+   },
+   {
+    "uva": 907,
+    "title": "Winterim Backpacking Trip",
+    "A": 200,
+    "B": 97,
+    "C": 54,
+    "F": 2.18
+   },
+   {
+    "uva": 111,
+    "title": "History Grading",
+    "A": 45,
+    "B": 32,
+    "C": 21,
+    "F": 0.85
+   },
+   {
+    "uva": 13211,
+    "title": "Geonosis",
+    "A": 31,
+    "B": 20,
+    "C": 4,
+    "F": 0.16
+   }
+  ]
+ },
+ {
+  "date": "2025-05-20",
+  "avg": 1.2,
+  "problems": [
+   {
+    "uva": 11063,
+    "title": "B2-sequence",
+    "A": 4174,
+    "B": 1745,
+    "C": 1143,
+    "F": 45.45
+   },
+   {
+    "uva": 541,
+    "title": "Error Correction",
+    "A": 1065,
+    "B": 940,
+    "C": 848,
+    "F": 33.72
+   },
+   {
+    "uva": 441,
+    "title": "Lotto",
+    "A": 404,
+    "B": 372,
+    "C": 342,
+    "F": 13.6
+   },
+   {
+    "uva": 543,
+    "title": "Goldbach’s Conjecture",
+    "A": 843,
+    "B": 638,
+    "C": 525,
+    "F": 20.87
+   },
+   {
+    "uva": 357,
+    "title": "Let Me Count The Ways",
+    "A": 385,
+    "B": 203,
+    "C": 110,
+    "F": 4.37
+   },
+   {
+    "uva": 10740,
+    "title": "First Love!!!",
+    "A": 151,
+    "B": 63,
+    "C": 32,
+    "F": 1.27
+   },
+   {
+    "uva": 1234,
+    "title": "RACING",
+    "A": 65,
+    "B": 35,
+    "C": 20,
+    "F": 0.8
+   }
+  ]
+ },
+ {
+  "date": "2025-03-25",
+  "avg": 1.5,
+  "problems": [
+   {
+    "uva": 11461,
+    "title": "Square Numbers",
+    "A": 4503,
+    "B": 2364,
+    "C": 1963,
+    "F": 71.93
+   },
+   {
+    "uva": 10327,
+    "title": "Flip Sort",
+    "A": 2253,
+    "B": 1634,
+    "C": 1458,
+    "F": 53.43
+   },
+   {
+    "uva": 10815,
+    "title": "Andy’s First Dictionary",
+    "A": 881,
+    "B": 581,
+    "C": 441,
+    "F": 16.16
+   },
+   {
+    "uva": 13242,
+    "title": "Pool Filling",
+    "A": 633,
+    "B": 180,
+    "C": 85,
+    "F": 3.11
+   },
+   {
+    "uva": 12442,
+    "title": "Forwarding Emails",
+    "A": 249,
+    "B": 186,
+    "C": 124,
+    "F": 4.54
+   },
+   {
+    "uva": 10690,
+    "title": "Expression Again",
+    "A": 125,
+    "B": 53,
+    "C": 10,
+    "F": 0.37
+   },
+   {
+    "uva": 13204,
+    "title": "Count these Permutations",
+    "A": 97,
+    "B": 64,
+    "C": 21,
+    "F": 0.77
+   }
+  ]
+ },
+ {
+  "date": "2024-12-10",
+  "avg": 1.55,
+  "problems": [
+   {
+    "uva": 12250,
+    "title": "Language Detection",
+    "A": 3323,
+    "B": 1911,
+    "C": 1648,
+    "F": 67.38
+   },
+   {
+    "uva": 382,
+    "title": "Perfection",
+    "A": 1827,
+    "B": 1556,
+    "C": 1462,
+    "F": 59.77
+   },
+   {
+    "uva": 10268,
+    "title": "498-bis",
+    "A": 845,
+    "B": 634,
+    "C": 552,
+    "F": 22.57
+   },
+   {
+    "uva": 10273,
+    "title": "Eat or Not to Eat?",
+    "A": 829,
+    "B": 211,
+    "C": 102,
+    "F": 4.17
+   },
+   {
+    "uva": 10150,
+    "title": "Doublets",
+    "A": 124,
+    "B": 45,
+    "C": 10,
+    "F": 0.41
+   },
+   {
+    "uva": 10626,
+    "title": "Buying Coke",
+    "A": 818,
+    "B": 254,
+    "C": 23,
+    "F": 0.94
+   },
+   {
+    "uva": 1657,
+    "title": "Game",
+    "A": 14,
+    "B": 12,
+    "C": 2,
+    "F": 0.08
+   }
+  ]
+ },
+ {
+  "date": "2024-10-15",
+  "avg": 1.11,
+  "problems": [
+   {
+    "uva": 10008,
+    "title": "What's Cryptanalysis?",
+    "A": 1504,
+    "B": 1249,
+    "C": 1110,
+    "F": 42.92
+   },
+   {
+    "uva": 10107,
+    "title": "What is the Median?",
+    "A": 2613,
+    "B": 1412,
+    "C": 1082,
+    "F": 41.84
+   },
+   {
+    "uva": 10110,
+    "title": "Light, more light",
+    "A": 1359,
+    "B": 805,
+    "C": 533,
+    "F": 20.61
+   },
+   {
+    "uva": 10539,
+    "title": "Almost Prime Numbers",
+    "A": 531,
+    "B": 288,
+    "C": 123,
+    "F": 4.76
+   },
+   {
+    "uva": 10355,
+    "title": "Superman",
+    "A": 153,
+    "B": 57,
+    "C": 16,
+    "F": 0.62
+   },
+   {
+    "uva": 12882,
+    "title": "City Park",
+    "A": 283,
+    "B": 75,
+    "C": 3,
+    "F": 0.12
+   },
+   {
+    "uva": 1371,
+    "title": "Period",
+    "A": 33,
+    "B": 23,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2024-05-21",
+  "avg": 1.16,
+  "problems": [
+   {
+    "uva": 11634,
+    "title": "Generate random numbers",
+    "A": 1202,
+    "B": 888,
+    "C": 726,
+    "F": 30.17
+   },
+   {
+    "uva": 12015,
+    "title": "Google is Feeling Lucky",
+    "A": 1361,
+    "B": 1195,
+    "C": 1105,
+    "F": 45.93
+   },
+   {
+    "uva": 10908,
+    "title": "Largest Squares",
+    "A": 1008,
+    "B": 646,
+    "C": 529,
+    "F": 21.99
+   },
+   {
+    "uva": 10858,
+    "title": "Unique Factorization",
+    "A": 210,
+    "B": 111,
+    "C": 60,
+    "F": 2.49
+   },
+   {
+    "uva": 11518,
+    "title": "Dominos 2",
+    "A": 512,
+    "B": 312,
+    "C": 243,
+    "F": 10.1
+   },
+   {
+    "uva": 941,
+    "title": "Permutations",
+    "A": 217,
+    "B": 124,
+    "C": 92,
+    "F": 3.82
+   },
+   {
+    "uva": 1292,
+    "title": "Strategic game",
+    "A": 175,
+    "B": 57,
+    "C": 37,
+    "F": 1.54
+   }
+  ]
+ },
+ {
+  "date": "2024-04-23",
+  "avg": 1.26,
+  "problems": [
+   {
+    "uva": 10041,
+    "title": "Vito's family",
+    "A": 2774,
+    "B": 1645,
+    "C": 1295,
+    "F": 48.54
+   },
+   {
+    "uva": 573,
+    "title": "The Snail",
+    "A": 1543,
+    "B": 1026,
+    "C": 830,
+    "F": 31.11
+   },
+   {
+    "uva": 11233,
+    "title": "Deli Deli",
+    "A": 930,
+    "B": 730,
+    "C": 688,
+    "F": 25.79
+   },
+   {
+    "uva": 1118,
+    "title": "Binary Stirling Numbers",
+    "A": 910,
+    "B": 356,
+    "C": 227,
+    "F": 8.51
+   },
+   {
+    "uva": 340,
+    "title": "Master-Mind Hints",
+    "A": 209,
+    "B": 193,
+    "C": 176,
+    "F": 6.6
+   },
+   {
+    "uva": 580,
+    "title": "Critical Mass",
+    "A": 168,
+    "B": 109,
+    "C": 93,
+    "F": 3.49
+   },
+   {
+    "uva": 10229,
+    "title": "Modular Fibonacci",
+    "A": 533,
+    "B": 244,
+    "C": 59,
+    "F": 2.21
+   }
+  ]
+ },
+ {
+  "date": "2023-12-12",
+  "avg": 0.87,
+  "problems": [
+   {
+    "uva": 392,
+    "title": "Polynomial Showdown",
+    "A": 2914,
+    "B": 1627,
+    "C": 1224,
+    "F": 46.31
+   },
+   {
+    "uva": 10443,
+    "title": "Rock, Scissors, Paper",
+    "A": 542,
+    "B": 474,
+    "C": 411,
+    "F": 15.55
+   },
+   {
+    "uva": 10242,
+    "title": "Fourth Point!!",
+    "A": 1451,
+    "B": 698,
+    "C": 531,
+    "F": 20.09
+   },
+   {
+    "uva": 12546,
+    "title": "LCM Pair Sum",
+    "A": 108,
+    "B": 68,
+    "C": 32,
+    "F": 1.21
+   },
+   {
+    "uva": 11121,
+    "title": "Base -2",
+    "A": 102,
+    "B": 89,
+    "C": 55,
+    "F": 2.08
+   },
+   {
+    "uva": 12428,
+    "title": "Enemy at the Gates",
+    "A": 57,
+    "B": 46,
+    "C": 29,
+    "F": 1.1
+   },
+   {
+    "uva": 10721,
+    "title": "Bar Codes",
+    "A": 48,
+    "B": 36,
+    "C": 17,
+    "F": 0.64
+   }
+  ]
+ },
+ {
+  "date": "2023-10-17",
+  "avg": 0.6,
+  "problems": [
+   {
+    "uva": 11576,
+    "title": "Scrolling Sign",
+    "A": 1106,
+    "B": 779,
+    "C": 443,
+    "F": 17.91
+   },
+   {
+    "uva": 10093,
+    "title": "An Easy Problem!",
+    "A": 1700,
+    "B": 788,
+    "C": 315,
+    "F": 12.73
+   },
+   {
+    "uva": 10161,
+    "title": "Ant on a Chessboard",
+    "A": 1057,
+    "B": 795,
+    "C": 583,
+    "F": 23.57
+   },
+   {
+    "uva": 442,
+    "title": "Matrix Chain Multiplication",
+    "A": 134,
+    "B": 132,
+    "C": 105,
+    "F": 4.24
+   },
+   {
+    "uva": 1193,
+    "title": "Radar Installation",
+    "A": 63,
+    "B": 50,
+    "C": 17,
+    "F": 0.69
+   },
+   {
+    "uva": 10672,
+    "title": "Marbles on a tree",
+    "A": 49,
+    "B": 40,
+    "C": 20,
+    "F": 0.81
+   },
+   {
+    "uva": 11175,
+    "title": "From D to E and Back",
+    "A": 31,
+    "B": 25,
+    "C": 4,
+    "F": 0.16
+   }
+  ]
+ },
+ {
+  "date": "2023-05-23",
+  "avg": 1.62,
+  "problems": [
+   {
+    "uva": 11934,
+    "title": "Magic Formula",
+    "A": 2479,
+    "B": 2183,
+    "C": 2053,
+    "F": 77.82
+   },
+   {
+    "uva": 11349,
+    "title": "Symmetric Matrix",
+    "A": 2538,
+    "B": 1349,
+    "C": 1022,
+    "F": 38.74
+   },
+   {
+    "uva": 834,
+    "title": "Continued Fractions",
+    "A": 1477,
+    "B": 994,
+    "C": 856,
+    "F": 32.45
+   },
+   {
+    "uva": 12455,
+    "title": "Bars",
+    "A": 465,
+    "B": 355,
+    "C": 272,
+    "F": 10.31
+   },
+   {
+    "uva": 512,
+    "title": "Spreadsheet Tracking",
+    "A": 151,
+    "B": 86,
+    "C": 48,
+    "F": 1.82
+   },
+   {
+    "uva": 828,
+    "title": "Deciphering Messages",
+    "A": 55,
+    "B": 42,
+    "C": 30,
+    "F": 1.14
+   },
+   {
+    "uva": 1714,
+    "title": "Keyboarding",
+    "A": 11,
+    "B": 9,
+    "C": 2,
+    "F": 0.08
+   }
+  ]
+ },
+ {
+  "date": "2023-03-21",
+  "avg": 1.66,
+  "problems": [
+   {
+    "uva": 10035,
+    "title": "Primary Arithmetic",
+    "A": 4420,
+    "B": 2273,
+    "C": 1918,
+    "F": 68.23
+   },
+   {
+    "uva": 11824,
+    "title": "A Minimum Land Price",
+    "A": 2896,
+    "B": 1511,
+    "C": 1264,
+    "F": 44.97
+   },
+   {
+    "uva": 13055,
+    "title": "Inception",
+    "A": 1018,
+    "B": 934,
+    "C": 877,
+    "F": 31.2
+   },
+   {
+    "uva": 11240,
+    "title": "Antimonotonicity",
+    "A": 407,
+    "B": 322,
+    "C": 222,
+    "F": 7.9
+   },
+   {
+    "uva": 160,
+    "title": "Factors and Factorials",
+    "A": 441,
+    "B": 372,
+    "C": 309,
+    "F": 10.99
+   },
+   {
+    "uva": 1366,
+    "title": "Martian Mining",
+    "A": 37,
+    "B": 36,
+    "C": 18,
+    "F": 0.64
+   },
+   {
+    "uva": 11624,
+    "title": "Fire!",
+    "A": 176,
+    "B": 106,
+    "C": 67,
+    "F": 2.38
+   }
+  ]
+ },
+ {
+  "date": "2022-12-13",
+  "avg": 1.38,
+  "problems": [
+   {
+    "uva": 10931,
+    "title": "Parity",
+    "A": 2668,
+    "B": 1915,
+    "C": 1589,
+    "F": 63.43
+   },
+   {
+    "uva": 10789,
+    "title": "Prime Frequency",
+    "A": 1644,
+    "B": 1117,
+    "C": 954,
+    "F": 38.08
+   },
+   {
+    "uva": 10903,
+    "title": "Playing War",
+    "A": 809,
+    "B": 604,
+    "C": 512,
+    "F": 20.44
+   },
+   {
+    "uva": 10336,
+    "title": "Rank the Languages",
+    "A": 332,
+    "B": 242,
+    "C": 204,
+    "F": 8.14
+   },
+   {
+    "uva": 300,
+    "title": "Maya Calendar",
+    "A": 203,
+    "B": 167,
+    "C": 143,
+    "F": 5.71
+   },
+   {
+    "uva": 11584,
+    "title": "Partitioning by Palindromes",
+    "A": 94,
+    "B": 75,
+    "C": 38,
+    "F": 1.52
+   },
+   {
+    "uva": 10635,
+    "title": "The Art Gallery",
+    "A": 102,
+    "B": 62,
+    "C": 26,
+    "F": 1.04
+   }
+  ]
+ },
+ {
+  "date": "2022-10-18",
+  "avg": 1.36,
+  "problems": [
+   {
+    "uva": 11332,
+    "title": "Summing Digits",
+    "A": 2565,
+    "B": 1931,
+    "C": 1729,
+    "F": 73.51
+   },
+   {
+    "uva": 11219,
+    "title": "Basic wall maze",
+    "A": 3615,
+    "B": 1309,
+    "C": 924,
+    "F": 39.29
+   },
+   {
+    "uva": 1339,
+    "title": "Ancient Cipher",
+    "A": 516,
+    "B": 428,
+    "C": 352,
+    "F": 14.97
+   },
+   {
+    "uva": 11957,
+    "title": "Checkers",
+    "A": 304,
+    "B": 165,
+    "C": 93,
+    "F": 3.95
+   },
+   {
+    "uva": 815,
+    "title": "Flooded!",
+    "A": 157,
+    "B": 80,
+    "C": 50,
+    "F": 2.13
+   },
+   {
+    "uva": 10397,
+    "title": "Connect the Campus",
+    "A": 51,
+    "B": 39,
+    "C": 23,
+    "F": 0.98
+   },
+   {
+    "uva": 437,
+    "title": "The Tower of Babylon",
+    "A": 54,
+    "B": 41,
+    "C": 20,
+    "F": 0.85
+   }
+  ]
+ },
+ {
+  "date": "2022-05-24",
+  "avg": 1.36,
+  "problems": [
+   {
+    "uva": 10190,
+    "title": "Divide, But Not Quite Conquer!",
+    "A": 3329,
+    "B": 1366,
+    "C": 1006,
+    "F": 55.46
+   },
+   {
+    "uva": 11000,
+    "title": "The Four in One Stadium",
+    "A": 1404,
+    "B": 1017,
+    "C": 860,
+    "F": 47.41
+   },
+   {
+    "uva": 12592,
+    "title": "Slogan Learning of Princess",
+    "A": 562,
+    "B": 500,
+    "C": 479,
+    "F": 26.41
+   },
+   {
+    "uva": 1640,
+    "title": "The Counting Problem",
+    "A": 541,
+    "B": 289,
+    "C": 35,
+    "F": 1.93
+   },
+   {
+    "uva": 108,
+    "title": "Maximum Sum",
+    "A": 55,
+    "B": 48,
+    "C": 33,
+    "F": 1.82
+   },
+   {
+    "uva": 674,
+    "title": "Coin Change",
+    "A": 128,
+    "B": 87,
+    "C": 60,
+    "F": 3.31
+   },
+   {
+    "uva": 1101,
+    "title": "addmul",
+    "A": 5,
+    "B": 5,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2022-03-22",
+  "avg": 1.56,
+  "problems": [
+   {
+    "uva": 12908,
+    "title": "The book thief",
+    "A": 1879,
+    "B": 1545,
+    "C": 1427,
+    "F": 55.72
+   },
+   {
+    "uva": 10642,
+    "title": "Can You Solve It",
+    "A": 2976,
+    "B": 1450,
+    "C": 979,
+    "F": 38.23
+   },
+   {
+    "uva": 13171,
+    "title": "Pixel Art",
+    "A": 1234,
+    "B": 1059,
+    "C": 1008,
+    "F": 39.36
+   },
+   {
+    "uva": 11360,
+    "title": "Having Fun with Matrices",
+    "A": 545,
+    "B": 501,
+    "C": 468,
+    "F": 18.27
+   },
+   {
+    "uva": 10326,
+    "title": "The Polynomial Equation",
+    "A": 182,
+    "B": 148,
+    "C": 102,
+    "F": 3.98
+   },
+   {
+    "uva": 12627,
+    "title": "Erratic Expansion",
+    "A": 57,
+    "B": 42,
+    "C": 11,
+    "F": 0.43
+   },
+   {
+    "uva": 11659,
+    "title": "Informants",
+    "A": 50,
+    "B": 32,
+    "C": 9,
+    "F": 0.35
+   }
+  ]
+ },
+ {
+  "date": "2021-12-21",
+  "avg": 1.28,
+  "problems": [
+   {
+    "uva": 1260,
+    "title": "Sales",
+    "A": 1935,
+    "B": 1639,
+    "C": 1510,
+    "F": 61.41
+   },
+   {
+    "uva": 11728,
+    "title": "Alternate Task",
+    "A": 1900,
+    "B": 1241,
+    "C": 941,
+    "F": 38.27
+   },
+   {
+    "uva": 118,
+    "title": "Mutant Flatworld Explorers",
+    "A": 1054,
+    "B": 507,
+    "C": 288,
+    "F": 11.71
+   },
+   {
+    "uva": 11078,
+    "title": "Open Credit System",
+    "A": 947,
+    "B": 564,
+    "C": 314,
+    "F": 12.77
+   },
+   {
+    "uva": 10800,
+    "title": "Not That Kind of Graph",
+    "A": 148,
+    "B": 111,
+    "C": 75,
+    "F": 3.05
+   },
+   {
+    "uva": 11792,
+    "title": "Krochanska is Here!",
+    "A": 19,
+    "B": 18,
+    "C": 9,
+    "F": 0.37
+   },
+   {
+    "uva": 12911,
+    "title": "Subset sum",
+    "A": 61,
+    "B": 35,
+    "C": 5,
+    "F": 0.2
+   }
+  ]
+ },
+ {
+  "date": "2021-10-19",
+  "avg": 1.02,
+  "problems": [
+   {
+    "uva": 12959,
+    "title": "Strategy Game",
+    "A": 2192,
+    "B": 1295,
+    "C": 990,
+    "F": 47.21
+   },
+   {
+    "uva": 10222,
+    "title": "Decode the Mad man",
+    "A": 1248,
+    "B": 857,
+    "C": 694,
+    "F": 33.09
+   },
+   {
+    "uva": 12970,
+    "title": "Alcoholic Pilots",
+    "A": 1239,
+    "B": 584,
+    "C": 227,
+    "F": 10.82
+   },
+   {
+    "uva": 12869,
+    "title": "Zeroes",
+    "A": 439,
+    "B": 275,
+    "C": 164,
+    "F": 7.82
+   },
+   {
+    "uva": 380,
+    "title": "Call Forwarding",
+    "A": 41,
+    "B": 35,
+    "C": 24,
+    "F": 1.14
+   },
+   {
+    "uva": 11258,
+    "title": "String Partition",
+    "A": 49,
+    "B": 37,
+    "C": 17,
+    "F": 0.81
+   },
+   {
+    "uva": 437,
+    "title": "The Tower of Babylon",
+    "A": 34,
+    "B": 26,
+    "C": 13,
+    "F": 0.62
+   }
+  ]
+ },
+ {
+  "date": "2021-03-23",
+  "avg": 1.56,
+  "problems": [
+   {
+    "uva": 12019,
+    "title": "Doom's Day Algorithm",
+    "A": 2937,
+    "B": 1951,
+    "C": 1785,
+    "F": 74.56
+   },
+   {
+    "uva": 10921,
+    "title": "Find the Telephone",
+    "A": 2126,
+    "B": 1514,
+    "C": 1381,
+    "F": 57.69
+   },
+   {
+    "uva": 725,
+    "title": "Division",
+    "A": 679,
+    "B": 391,
+    "C": 287,
+    "F": 11.99
+   },
+   {
+    "uva": 11489,
+    "title": "Integer Game",
+    "A": 526,
+    "B": 322,
+    "C": 211,
+    "F": 8.81
+   },
+   {
+    "uva": 12218,
+    "title": "An Industrial Spy",
+    "A": 72,
+    "B": 57,
+    "C": 43,
+    "F": 1.8
+   },
+   {
+    "uva": 11495,
+    "title": "Bubbles and Buckets",
+    "A": 211,
+    "B": 123,
+    "C": 24,
+    "F": 1.0
+   },
+   {
+    "uva": 709,
+    "title": "Formatting Text",
+    "A": 25,
+    "B": 13,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2020-12-22",
+  "avg": 1.0,
+  "problems": [
+   {
+    "uva": 11689,
+    "title": "Soda Surpler",
+    "A": 2756,
+    "B": 1697,
+    "C": 1392,
+    "F": 62.12
+   },
+   {
+    "uva": 10188,
+    "title": "Automated Judge Script",
+    "A": 461,
+    "B": 283,
+    "C": 198,
+    "F": 8.84
+   },
+   {
+    "uva": 10415,
+    "title": "Eb Alto Saxophone Player",
+    "A": 713,
+    "B": 619,
+    "C": 554,
+    "F": 24.72
+   },
+   {
+    "uva": 11536,
+    "title": "Smallest Sub-Array",
+    "A": 315,
+    "B": 136,
+    "C": 26,
+    "F": 1.16
+   },
+   {
+    "uva": 11960,
+    "title": "Divisor Game",
+    "A": 704,
+    "B": 308,
+    "C": 60,
+    "F": 2.68
+   },
+   {
+    "uva": 12319,
+    "title": "Edgetown’s Traffic Jams",
+    "A": 16,
+    "B": 14,
+    "C": 12,
+    "F": 0.54
+   },
+   {
+    "uva": 11633,
+    "title": "Food portion size",
+    "A": 9,
+    "B": 9,
+    "C": 3,
+    "F": 0.13
+   }
+  ]
+ },
+ {
+  "date": "2020-10-20",
+  "avg": 1.09,
+  "problems": [
+   {
+    "uva": 10050,
+    "title": "Hartals",
+    "A": 1388,
+    "B": 1004,
+    "C": 827,
+    "F": 37.94
+   },
+   {
+    "uva": 458,
+    "title": "The Decoder",
+    "A": 2066,
+    "B": 1213,
+    "C": 980,
+    "F": 44.95
+   },
+   {
+    "uva": 389,
+    "title": "Basically Speaking",
+    "A": 800,
+    "B": 510,
+    "C": 391,
+    "F": 17.94
+   },
+   {
+    "uva": 10267,
+    "title": "Graphical Editor",
+    "A": 480,
+    "B": 184,
+    "C": 79,
+    "F": 3.62
+   },
+   {
+    "uva": 615,
+    "title": "Is It A Tree?",
+    "A": 173,
+    "B": 114,
+    "C": 69,
+    "F": 3.17
+   },
+   {
+    "uva": 1746,
+    "title": "String Theory",
+    "A": 18,
+    "B": 15,
+    "C": 2,
+    "F": 0.09
+   },
+   {
+    "uva": 165,
+    "title": "Stamps",
+    "A": 111,
+    "B": 67,
+    "C": 21,
+    "F": 0.96
+   }
+  ]
+ },
+ {
+  "date": "2020-06-09",
+  "avg": 1.35,
+  "problems": [
+   {
+    "uva": 11498,
+    "title": "Division of Nlogonia",
+    "A": 1637,
+    "B": 1360,
+    "C": 1278,
+    "F": 64.29
+   },
+   {
+    "uva": 10189,
+    "title": "Minesweeper",
+    "A": 2237,
+    "B": 964,
+    "C": 749,
+    "F": 37.68
+   },
+   {
+    "uva": 1368,
+    "title": "DNA Consensus String",
+    "A": 1473,
+    "B": 506,
+    "C": 327,
+    "F": 16.45
+   },
+   {
+    "uva": 855,
+    "title": "Lunch in Grid City",
+    "A": 301,
+    "B": 191,
+    "C": 141,
+    "F": 7.09
+   },
+   {
+    "uva": 10191,
+    "title": "Longest Nap",
+    "A": 215,
+    "B": 157,
+    "C": 123,
+    "F": 6.19
+   },
+   {
+    "uva": 10130,
+    "title": "SuperSale",
+    "A": 38,
+    "B": 37,
+    "C": 22,
+    "F": 1.11
+   },
+   {
+    "uva": 10583,
+    "title": "Ubiquitous Religions",
+    "A": 108,
+    "B": 87,
+    "C": 49,
+    "F": 2.46
+   }
+  ]
+ },
+ {
+  "date": "2020-05-26",
+  "avg": 0.87,
+  "problems": [
+   {
+    "uva": 10268,
+    "title": "498-bis",
+    "A": 920,
+    "B": 577,
+    "C": 403,
+    "F": 17.9
+   },
+   {
+    "uva": 263,
+    "title": "Number Chains",
+    "A": 985,
+    "B": 576,
+    "C": 396,
+    "F": 17.58
+   },
+   {
+    "uva": 1237,
+    "title": "Expert Enough?",
+    "A": 942,
+    "B": 606,
+    "C": 522,
+    "F": 23.18
+   },
+   {
+    "uva": 12918,
+    "title": "Lucky Thief",
+    "A": 1523,
+    "B": 740,
+    "C": 581,
+    "F": 25.8
+   },
+   {
+    "uva": 1316,
+    "title": "Supermarket",
+    "A": 131,
+    "B": 87,
+    "C": 34,
+    "F": 1.51
+   },
+   {
+    "uva": 11730,
+    "title": "Number Transformation",
+    "A": 258,
+    "B": 142,
+    "C": 18,
+    "F": 0.8
+   },
+   {
+    "uva": 11284,
+    "title": "Shopping Trip",
+    "A": 13,
+    "B": 10,
+    "C": 3,
+    "F": 0.13
+   }
+  ]
+ },
+ {
+  "date": "2019-12-17",
+  "avg": 1.51,
+  "problems": [
+   {
+    "uva": 11677,
+    "title": "Alarm Clock",
+    "A": 4779,
+    "B": 2382,
+    "C": 2105,
+    "F": 76.68
+   },
+   {
+    "uva": 11417,
+    "title": "GCD",
+    "A": 2835,
+    "B": 1527,
+    "C": 1169,
+    "F": 42.59
+   },
+   {
+    "uva": 12820,
+    "title": "Cool Word",
+    "A": 1151,
+    "B": 813,
+    "C": 711,
+    "F": 25.9
+   },
+   {
+    "uva": 10010,
+    "title": "Where's Waldorf?",
+    "A": 165,
+    "B": 112,
+    "C": 75,
+    "F": 2.73
+   },
+   {
+    "uva": 13257,
+    "title": "License Plates",
+    "A": 102,
+    "B": 87,
+    "C": 40,
+    "F": 1.46
+   },
+   {
+    "uva": 544,
+    "title": "Heavy Cargo",
+    "A": 45,
+    "B": 33,
+    "C": 20,
+    "F": 0.73
+   },
+   {
+    "uva": 11987,
+    "title": "Almost Union-Find",
+    "A": 83,
+    "B": 66,
+    "C": 31,
+    "F": 1.13
+   }
+  ]
+ },
+ {
+  "date": "2019-09-24",
+  "avg": 0.8,
+  "problems": [
+   {
+    "uva": 11349,
+    "title": "Symmetric Matrix",
+    "A": 2267,
+    "B": 1004,
+    "C": 601,
+    "F": 27.98
+   },
+   {
+    "uva": 11541,
+    "title": "Decoding",
+    "A": 1134,
+    "B": 856,
+    "C": 691,
+    "F": 32.17
+   },
+   {
+    "uva": 10813,
+    "title": "Traditional BINGO",
+    "A": 422,
+    "B": 312,
+    "C": 266,
+    "F": 12.38
+   },
+   {
+    "uva": 255,
+    "title": "Correct Move",
+    "A": 163,
+    "B": 113,
+    "C": 80,
+    "F": 3.72
+   },
+   {
+    "uva": 679,
+    "title": "Dropping Balls",
+    "A": 72,
+    "B": 64,
+    "C": 49,
+    "F": 2.28
+   },
+   {
+    "uva": 10036,
+    "title": "Divisibility",
+    "A": 95,
+    "B": 55,
+    "C": 17,
+    "F": 0.79
+   },
+   {
+    "uva": 11456,
+    "title": "Trainsorting",
+    "A": 113,
+    "B": 71,
+    "C": 8,
+    "F": 0.37
+   }
+  ]
+ },
+ {
+  "date": "2019-05-28",
+  "avg": 0.81,
+  "problems": [
+   {
+    "uva": 1594,
+    "title": "Ducci Sequence",
+    "A": 1767,
+    "B": 1322,
+    "C": 1077,
+    "F": 47.26
+   },
+   {
+    "uva": 11220,
+    "title": "Decoding the message.",
+    "A": 658,
+    "B": 427,
+    "C": 294,
+    "F": 12.9
+   },
+   {
+    "uva": 10221,
+    "title": "Satellites",
+    "A": 467,
+    "B": 207,
+    "C": 143,
+    "F": 6.27
+   },
+   {
+    "uva": 846,
+    "title": "Steps",
+    "A": 648,
+    "B": 364,
+    "C": 185,
+    "F": 8.12
+   },
+   {
+    "uva": 1056,
+    "title": "Degrees of Separation",
+    "A": 57,
+    "B": 39,
+    "C": 28,
+    "F": 1.23
+   },
+   {
+    "uva": 10810,
+    "title": "Ultra-QuickSort",
+    "A": 416,
+    "B": 209,
+    "C": 110,
+    "F": 4.83
+   },
+   {
+    "uva": 12096,
+    "title": "The SetStack Computer",
+    "A": 50,
+    "B": 30,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2019-03-26",
+  "avg": 1.09,
+  "problems": [
+   {
+    "uva": 11678,
+    "title": "Cards' Exchange",
+    "A": 1581,
+    "B": 966,
+    "C": 704,
+    "F": 29.09
+   },
+   {
+    "uva": 1583,
+    "title": "Digit Generator",
+    "A": 1736,
+    "B": 1228,
+    "C": 1072,
+    "F": 44.3
+   },
+   {
+    "uva": 10420,
+    "title": "List of Conquests",
+    "A": 968,
+    "B": 517,
+    "C": 354,
+    "F": 14.63
+   },
+   {
+    "uva": 10530,
+    "title": "Guessing Game",
+    "A": 888,
+    "B": 565,
+    "C": 453,
+    "F": 18.72
+   },
+   {
+    "uva": 1207,
+    "title": "AGTC",
+    "A": 86,
+    "B": 42,
+    "C": 18,
+    "F": 0.74
+   },
+   {
+    "uva": 11747,
+    "title": "Heavy Cycle Edges",
+    "A": 76,
+    "B": 40,
+    "C": 26,
+    "F": 1.07
+   },
+   {
+    "uva": 10603,
+    "title": "Fill",
+    "A": 15,
+    "B": 11,
+    "C": 4,
+    "F": 0.17
+   }
+  ]
+ },
+ {
+  "date": "2018-12-18",
+  "avg": 1.09,
+  "problems": [
+   {
+    "uva": 11636,
+    "title": "Hello World!",
+    "A": 3061,
+    "B": 1953,
+    "C": 1654,
+    "F": 63.03
+   },
+   {
+    "uva": 10550,
+    "title": "Combination Lock",
+    "A": 1124,
+    "B": 692,
+    "C": 539,
+    "F": 20.54
+   },
+   {
+    "uva": 10101,
+    "title": "Bangla Numbers",
+    "A": 2205,
+    "B": 869,
+    "C": 491,
+    "F": 18.71
+   },
+   {
+    "uva": 294,
+    "title": "Divisors",
+    "A": 220,
+    "B": 164,
+    "C": 124,
+    "F": 4.73
+   },
+   {
+    "uva": 1262,
+    "title": "Password",
+    "A": 35,
+    "B": 32,
+    "C": 29,
+    "F": 1.11
+   },
+   {
+    "uva": 12385,
+    "title": "Interesting Sequences",
+    "A": 39,
+    "B": 37,
+    "C": 22,
+    "F": 0.84
+   },
+   {
+    "uva": 12041,
+    "title": "BFS (Binary Fibonacci String)",
+    "A": 57,
+    "B": 37,
+    "C": 5,
+    "F": 0.19
+   }
+  ]
+ },
+ {
+  "date": "2018-10-02",
+  "avg": 1.02,
+  "problems": [
+   {
+    "uva": 12650,
+    "title": "Dangerous Dive",
+    "A": 2654,
+    "B": 1243,
+    "C": 991,
+    "F": 43.45
+   },
+   {
+    "uva": 10409,
+    "title": "Die Game",
+    "A": 815,
+    "B": 650,
+    "C": 537,
+    "F": 23.54
+   },
+   {
+    "uva": 145,
+    "title": "Gondwanaland Telecom",
+    "A": 357,
+    "B": 220,
+    "C": 135,
+    "F": 5.92
+   },
+   {
+    "uva": 11157,
+    "title": "Dynamic Frog",
+    "A": 73,
+    "B": 43,
+    "C": 19,
+    "F": 0.83
+   },
+   {
+    "uva": 13185,
+    "title": "DPA Numbers I",
+    "A": 806,
+    "B": 678,
+    "C": 615,
+    "F": 26.96
+   },
+   {
+    "uva": 12208,
+    "title": "How Many Ones Needed?",
+    "A": 626,
+    "B": 235,
+    "C": 20,
+    "F": 0.88
+   },
+   {
+    "uva": 10364,
+    "title": "Square",
+    "A": 237,
+    "B": 117,
+    "C": 8,
+    "F": 0.35
+   }
+  ]
+ },
+ {
+  "date": "2018-05-29",
+  "avg": 1.51,
+  "problems": [
+   {
+    "uva": 11455,
+    "title": "Behold My Quadrangle",
+    "A": 3998,
+    "B": 1753,
+    "C": 1381,
+    "F": 63.32
+   },
+   {
+    "uva": 913,
+    "title": "Joana and the Odd Numbers",
+    "A": 2281,
+    "B": 1259,
+    "C": 954,
+    "F": 43.74
+   },
+   {
+    "uva": 11321,
+    "title": "Sort! Sort!! And Sort!!!",
+    "A": 711,
+    "B": 418,
+    "C": 350,
+    "F": 16.05
+   },
+   {
+    "uva": 686,
+    "title": "Goldbach’s Conjecture (II)",
+    "A": 483,
+    "B": 421,
+    "C": 399,
+    "F": 18.29
+   },
+   {
+    "uva": 514,
+    "title": "Rails",
+    "A": 214,
+    "B": 142,
+    "C": 111,
+    "F": 5.09
+   },
+   {
+    "uva": 11908,
+    "title": "Skyscraper",
+    "A": 71,
+    "B": 44,
+    "C": 20,
+    "F": 0.92
+   },
+   {
+    "uva": 12532,
+    "title": "Interval Product",
+    "A": 122,
+    "B": 104,
+    "C": 79,
+    "F": 3.62
+   }
+  ]
+ },
+ {
+  "date": "2018-03-27",
+  "avg": 0.96,
+  "problems": [
+   {
+    "uva": 488,
+    "title": "Triangle Wave",
+    "A": 3539,
+    "B": 1773,
+    "C": 1467,
+    "F": 66.26
+   },
+   {
+    "uva": 10633,
+    "title": "Rare Easy Problem",
+    "A": 1322,
+    "B": 702,
+    "C": 367,
+    "F": 16.58
+   },
+   {
+    "uva": 118,
+    "title": "Mutant Flatworld Explorers",
+    "A": 871,
+    "B": 373,
+    "C": 200,
+    "F": 9.03
+   },
+   {
+    "uva": 1730,
+    "title": "Sum of MSLCM",
+    "A": 129,
+    "B": 99,
+    "C": 34,
+    "F": 1.54
+   },
+   {
+    "uva": 10004,
+    "title": "Bicoloring",
+    "A": 63,
+    "B": 49,
+    "C": 35,
+    "F": 1.58
+   },
+   {
+    "uva": 10664,
+    "title": "Luggage",
+    "A": 127,
+    "B": 72,
+    "C": 28,
+    "F": 1.26
+   },
+   {
+    "uva": 11085,
+    "title": "Back to the 8-Queens",
+    "A": 38,
+    "B": 17,
+    "C": 5,
+    "F": 0.23
+   }
+  ]
+ },
+ {
+  "date": "2017-12-19",
+  "avg": 1.29,
+  "problems": [
+   {
+    "uva": 10591,
+    "title": "Happy Number",
+    "A": 2552,
+    "B": 1245,
+    "C": 764,
+    "F": 30.17
+   },
+   {
+    "uva": 10071,
+    "title": "Back to High School Physics",
+    "A": 3717,
+    "B": 2118,
+    "C": 1881,
+    "F": 74.29
+   },
+   {
+    "uva": 11233,
+    "title": "Deli Deli",
+    "A": 887,
+    "B": 598,
+    "C": 531,
+    "F": 20.97
+   },
+   {
+    "uva": 10142,
+    "title": "Australian Voting",
+    "A": 75,
+    "B": 51,
+    "C": 22,
+    "F": 0.87
+   },
+   {
+    "uva": 12382,
+    "title": "Grid of Lamps",
+    "A": 40,
+    "B": 35,
+    "C": 18,
+    "F": 0.71
+   },
+   {
+    "uva": 10074,
+    "title": "Take the Land",
+    "A": 92,
+    "B": 68,
+    "C": 42,
+    "F": 1.66
+   },
+   {
+    "uva": 437,
+    "title": "The Tower of Babylon",
+    "A": 24,
+    "B": 18,
+    "C": 8,
+    "F": 0.32
+   }
+  ]
+ },
+ {
+  "date": "2017-09-26",
+  "avg": 1.34,
+  "problems": [
+   {
+    "uva": 11743,
+    "title": "Credit Check",
+    "A": 1882,
+    "B": 1273,
+    "C": 1078,
+    "F": 58.14
+   },
+   {
+    "uva": 299,
+    "title": "Train Swapping",
+    "A": 1295,
+    "B": 1008,
+    "C": 912,
+    "F": 49.19
+   },
+   {
+    "uva": 13190,
+    "title": "Rockabye Tobby",
+    "A": 756,
+    "B": 435,
+    "C": 363,
+    "F": 19.58
+   },
+   {
+    "uva": 696,
+    "title": "How Many Knights",
+    "A": 254,
+    "B": 137,
+    "C": 86,
+    "F": 4.64
+   },
+   {
+    "uva": 11264,
+    "title": "Coin Collector",
+    "A": 129,
+    "B": 69,
+    "C": 20,
+    "F": 1.08
+   },
+   {
+    "uva": 532,
+    "title": "Dungeon Master",
+    "A": 48,
+    "B": 42,
+    "C": 30,
+    "F": 1.62
+   },
+   {
+    "uva": 12223,
+    "title": "Moving to Nuremberg",
+    "A": 15,
+    "B": 12,
+    "C": 2,
+    "F": 0.11
+   }
+  ]
+ },
+ {
+  "date": "2017-05-23",
+  "avg": 1.22,
+  "problems": [
+   {
+    "uva": 1225,
+    "title": "Digit Counting",
+    "A": 2247,
+    "B": 1437,
+    "C": 1182,
+    "F": 57.35
+   },
+   {
+    "uva": 12195,
+    "title": "Jingle Composing",
+    "A": 1472,
+    "B": 936,
+    "C": 845,
+    "F": 41.0
+   },
+   {
+    "uva": 10056,
+    "title": "What is the Probability?",
+    "A": 969,
+    "B": 387,
+    "C": 303,
+    "F": 14.7
+   },
+   {
+    "uva": 1200,
+    "title": "A DP Problem",
+    "A": 362,
+    "B": 203,
+    "C": 149,
+    "F": 7.23
+   },
+   {
+    "uva": 12797,
+    "title": "Letters",
+    "A": 30,
+    "B": 20,
+    "C": 2,
+    "F": 0.1
+   },
+   {
+    "uva": 1208,
+    "title": "Oreon",
+    "A": 68,
+    "B": 45,
+    "C": 26,
+    "F": 1.26
+   },
+   {
+    "uva": 1513,
+    "title": "Movie collection",
+    "A": 52,
+    "B": 35,
+    "C": 3,
+    "F": 0.15
+   }
+  ]
+ },
+ {
+  "date": "2017-03-28",
+  "avg": 0.65,
+  "problems": [
+   {
+    "uva": 482,
+    "title": "Permutation Arrays",
+    "A": 802,
+    "B": 541,
+    "C": 310,
+    "F": 14.26
+   },
+   {
+    "uva": 10038,
+    "title": "Jolly Jumpers",
+    "A": 2421,
+    "B": 1067,
+    "C": 648,
+    "F": 29.81
+   },
+   {
+    "uva": 496,
+    "title": "Simply Subsets",
+    "A": 364,
+    "B": 262,
+    "C": 183,
+    "F": 8.42
+   },
+   {
+    "uva": 993,
+    "title": "Product of Digits",
+    "A": 320,
+    "B": 233,
+    "C": 194,
+    "F": 8.92
+   },
+   {
+    "uva": 11067,
+    "title": "Little Red Riding Hood",
+    "A": 71,
+    "B": 59,
+    "C": 44,
+    "F": 2.02
+   },
+   {
+    "uva": 122,
+    "title": "Trees on the level",
+    "A": 51,
+    "B": 36,
+    "C": 22,
+    "F": 1.01
+   },
+   {
+    "uva": 1650,
+    "title": "Number String",
+    "A": 32,
+    "B": 24,
+    "C": 3,
+    "F": 0.14
+   }
+  ]
+ },
+ {
+  "date": "2016-12-20",
+  "avg": 0.97,
+  "problems": [
+   {
+    "uva": 11364,
+    "title": "Parking",
+    "A": 1880,
+    "B": 1393,
+    "C": 1242,
+    "F": 56.58
+   },
+   {
+    "uva": 10242,
+    "title": "Fourth Point!!",
+    "A": 1813,
+    "B": 650,
+    "C": 344,
+    "F": 15.67
+   },
+   {
+    "uva": 865,
+    "title": "Substitution Cypher",
+    "A": 752,
+    "B": 407,
+    "C": 256,
+    "F": 11.66
+   },
+   {
+    "uva": 1644,
+    "title": "Prime Gap",
+    "A": 296,
+    "B": 244,
+    "C": 217,
+    "F": 9.89
+   },
+   {
+    "uva": 10066,
+    "title": "The Twin Towers",
+    "A": 94,
+    "B": 70,
+    "C": 32,
+    "F": 1.46
+   },
+   {
+    "uva": 10721,
+    "title": "Bar Codes",
+    "A": 33,
+    "B": 23,
+    "C": 5,
+    "F": 0.23
+   },
+   {
+    "uva": 11401,
+    "title": "Triangle Counting",
+    "A": 228,
+    "B": 110,
+    "C": 29,
+    "F": 1.32
+   }
+  ]
+ },
+ {
+  "date": "2016-10-04",
+  "avg": 0.82,
+  "problems": [
+   {
+    "uva": 11192,
+    "title": "Group Reverse",
+    "A": 1513,
+    "B": 843,
+    "C": 637,
+    "F": 37.94
+   },
+   {
+    "uva": 1587,
+    "title": "Box",
+    "A": 1666,
+    "B": 709,
+    "C": 418,
+    "F": 24.9
+   },
+   {
+    "uva": 10415,
+    "title": "Eb Alto Saxophone Player",
+    "A": 440,
+    "B": 267,
+    "C": 205,
+    "F": 12.21
+   },
+   {
+    "uva": 11344,
+    "title": "The Huge One",
+    "A": 164,
+    "B": 95,
+    "C": 46,
+    "F": 2.74
+   },
+   {
+    "uva": 12694,
+    "title": "Meeting Room Arrangement",
+    "A": 93,
+    "B": 60,
+    "C": 41,
+    "F": 2.44
+   },
+   {
+    "uva": 439,
+    "title": "Knight Moves",
+    "A": 41,
+    "B": 32,
+    "C": 18,
+    "F": 1.07
+   },
+   {
+    "uva": 11624,
+    "title": "Fire!",
+    "A": 33,
+    "B": 18,
+    "C": 4,
+    "F": 0.24
+   }
+  ]
+ },
+ {
+  "date": "2016-05-24",
+  "avg": 1.39,
+  "problems": [
+   {
+    "uva": 11942,
+    "title": "Lumberjack Sequencing",
+    "A": 2547,
+    "B": 1593,
+    "C": 1395,
+    "F": 70.17
+   },
+   {
+    "uva": 499,
+    "title": "What's The Frequency, Kenneth?",
+    "A": 773,
+    "B": 546,
+    "C": 483,
+    "F": 24.3
+   },
+   {
+    "uva": 948,
+    "title": "Fibonaccimal Base",
+    "A": 992,
+    "B": 691,
+    "C": 587,
+    "F": 29.53
+   },
+   {
+    "uva": 10200,
+    "title": "Prime Time",
+    "A": 600,
+    "B": 280,
+    "C": 161,
+    "F": 8.1
+   },
+   {
+    "uva": 11995,
+    "title": "I Can Guess the Data Structure!",
+    "A": 235,
+    "B": 127,
+    "C": 90,
+    "F": 4.53
+   },
+   {
+    "uva": 10025,
+    "title": "The ? 1 ? 2 ? ... ? n = k problem",
+    "A": 69,
+    "B": 62,
+    "C": 40,
+    "F": 2.01
+   },
+   {
+    "uva": 11472,
+    "title": "Beautiful Numbers",
+    "A": 26,
+    "B": 22,
+    "C": 4,
+    "F": 0.2
+   }
+  ]
+ },
+ {
+  "date": "2016-03-22",
+  "avg": 1.42,
+  "problems": [
+   {
+    "uva": 11764,
+    "title": "Cricket Field",
+    "A": 2092,
+    "B": 1538,
+    "C": 1422,
+    "F": 69.57
+   },
+   {
+    "uva": 10082,
+    "title": "WERTYU",
+    "A": 1747,
+    "B": 818,
+    "C": 643,
+    "F": 31.46
+   },
+   {
+    "uva": 10062,
+    "title": "Tell me the frequencies!",
+    "A": 683,
+    "B": 497,
+    "C": 407,
+    "F": 19.91
+   },
+   {
+    "uva": 406,
+    "title": "Prime Cuts",
+    "A": 354,
+    "B": 263,
+    "C": 227,
+    "F": 11.11
+   },
+   {
+    "uva": 10106,
+    "title": "Product",
+    "A": 442,
+    "B": 238,
+    "C": 155,
+    "F": 7.58
+   },
+   {
+    "uva": 10026,
+    "title": "Shoemaker's Problem",
+    "A": 75,
+    "B": 48,
+    "C": 43,
+    "F": 2.1
+   },
+   {
+    "uva": 10032,
+    "title": "Tug of War",
+    "A": 66,
+    "B": 41,
+    "C": 3,
+    "F": 0.15
+   }
+  ]
+ },
+ {
+  "date": "2015-12-22",
+  "avg": 1.09,
+  "problems": [
+   {
+    "uva": 11332,
+    "title": "Summing Digits",
+    "A": 2195,
+    "B": 1526,
+    "C": 1325,
+    "F": 66.78
+   },
+   {
+    "uva": 10487,
+    "title": "Closest Sums",
+    "A": 1070,
+    "B": 603,
+    "C": 481,
+    "F": 24.24
+   },
+   {
+    "uva": 706,
+    "title": "LC-Display",
+    "A": 319,
+    "B": 282,
+    "C": 243,
+    "F": 12.25
+   },
+   {
+    "uva": 10382,
+    "title": "Watering Grass",
+    "A": 41,
+    "B": 24,
+    "C": 6,
+    "F": 0.3
+   },
+   {
+    "uva": 748,
+    "title": "Exponentiation",
+    "A": 85,
+    "B": 48,
+    "C": 30,
+    "F": 1.51
+   },
+   {
+    "uva": 10533,
+    "title": "Digit Primes",
+    "A": 420,
+    "B": 196,
+    "C": 73,
+    "F": 3.68
+   },
+   {
+    "uva": 11003,
+    "title": "Boxes",
+    "A": 35,
+    "B": 25,
+    "C": 2,
+    "F": 0.1
+   }
+  ]
+ },
+ {
+  "date": "2015-10-06",
+  "avg": 0.6,
+  "problems": [
+   {
+    "uva": 455,
+    "title": "Periodic Strings",
+    "A": 1499,
+    "B": 677,
+    "C": 333,
+    "F": 20.18
+   },
+   {
+    "uva": 490,
+    "title": "Rotating Sentences",
+    "A": 719,
+    "B": 507,
+    "C": 393,
+    "F": 23.82
+   },
+   {
+    "uva": 11389,
+    "title": "The Bus Driver Problem",
+    "A": 633,
+    "B": 357,
+    "C": 207,
+    "F": 12.55
+   },
+   {
+    "uva": 967,
+    "title": "Circular",
+    "A": 186,
+    "B": 84,
+    "C": 46,
+    "F": 2.79
+   },
+   {
+    "uva": 378,
+    "title": "Intersecting Lines",
+    "A": 204,
+    "B": 49,
+    "C": 10,
+    "F": 0.61
+   },
+   {
+    "uva": 1632,
+    "title": "Alibaba",
+    "A": 7,
+    "B": 5,
+    "C": 0,
+    "F": 0.0
+   },
+   {
+    "uva": 240,
+    "title": "Variable Radix Huffman Encoding",
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "F": 0.06
+   }
+  ]
+ },
+ {
+  "date": "2015-05-26",
+  "avg": 1.11,
+  "problems": [
+   {
+    "uva": 1585,
+    "title": "Score",
+    "A": 1748,
+    "B": 1269,
+    "C": 1047,
+    "F": 57.59
+   },
+   {
+    "uva": 10474,
+    "title": "Where is the marble",
+    "A": 956,
+    "B": 715,
+    "C": 633,
+    "F": 34.82
+   },
+   {
+    "uva": 10908,
+    "title": "Largest Squares",
+    "A": 635,
+    "B": 356,
+    "C": 264,
+    "F": 14.52
+   },
+   {
+    "uva": 540,
+    "title": "Team Queue",
+    "A": 106,
+    "B": 60,
+    "C": 35,
+    "F": 1.93
+   },
+   {
+    "uva": 536,
+    "title": "Tree Recovery",
+    "A": 52,
+    "B": 39,
+    "C": 26,
+    "F": 1.43
+   },
+   {
+    "uva": 10369,
+    "title": "Arctic Network",
+    "A": 24,
+    "B": 13,
+    "C": 3,
+    "F": 0.17
+   },
+   {
+    "uva": 714,
+    "title": "Copying Books",
+    "A": 26,
+    "B": 20,
+    "C": 3,
+    "F": 0.17
+   }
+  ]
+ },
+ {
+  "date": "2015-03-24",
+  "avg": 0.89,
+  "problems": [
+   {
+    "uva": 591,
+    "title": "Box of Bricks",
+    "A": 3502,
+    "B": 1413,
+    "C": 1113,
+    "F": 60.79
+   },
+   {
+    "uva": 10922,
+    "title": "2 the 9s",
+    "A": 1161,
+    "B": 557,
+    "C": 361,
+    "F": 19.72
+   },
+   {
+    "uva": 409,
+    "title": "Exeuses, Excuses!",
+    "A": 295,
+    "B": 157,
+    "C": 104,
+    "F": 5.68
+   },
+   {
+    "uva": 11538,
+    "title": "Chess Queen",
+    "A": 123,
+    "B": 79,
+    "C": 38,
+    "F": 2.08
+   },
+   {
+    "uva": 534,
+    "title": "Frogger",
+    "A": 50,
+    "B": 36,
+    "C": 10,
+    "F": 0.55
+   },
+   {
+    "uva": 242,
+    "title": "Stamps and Envelope Size",
+    "A": 18,
+    "B": 12,
+    "C": 7,
+    "F": 0.38
+   },
+   {
+    "uva": 302,
+    "title": "John's trip",
+    "A": 21,
+    "B": 6,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2014-12-23",
+  "avg": 0.56,
+  "problems": [
+   {
+    "uva": 494,
+    "title": "Kindergarten Counting Game",
+    "A": 2351,
+    "B": 884,
+    "C": 480,
+    "F": 29.32
+   },
+   {
+    "uva": 11054,
+    "title": "Wine trading in Gergovig",
+    "A": 521,
+    "B": 328,
+    "C": 258,
+    "F": 15.76
+   },
+   {
+    "uva": 11005,
+    "title": "Cheapest Base",
+    "A": 161,
+    "B": 135,
+    "C": 117,
+    "F": 7.15
+   },
+   {
+    "uva": 337,
+    "title": "Interpreting Control Sequence",
+    "A": 50,
+    "B": 42,
+    "C": 33,
+    "F": 2.02
+   },
+   {
+    "uva": 397,
+    "title": "Equation Elation",
+    "A": 61,
+    "B": 43,
+    "C": 22,
+    "F": 1.34
+   },
+   {
+    "uva": 798,
+    "title": "Title Puzzle",
+    "A": 14,
+    "B": 7,
+    "C": 0,
+    "F": 0.0
+   },
+   {
+    "uva": 820,
+    "title": "Internet Bandwidth",
+    "A": 34,
+    "B": 22,
+    "C": 2,
+    "F": 0.12
+   }
+  ]
+ },
+ {
+  "date": "2014-09-23",
+  "avg": 1.09,
+  "problems": [
+   {
+    "uva": 579,
+    "title": "ClockHands",
+    "A": 902,
+    "B": 607,
+    "C": 504,
+    "F": 54.55
+   },
+   {
+    "uva": 10409,
+    "title": "Die Game",
+    "A": 386,
+    "B": 322,
+    "C": 281,
+    "F": 30.41
+   },
+   {
+    "uva": 630,
+    "title": "Anagrams (II)",
+    "A": 308,
+    "B": 141,
+    "C": 110,
+    "F": 11.9
+   },
+   {
+    "uva": 10763,
+    "title": "Foreign Exchange",
+    "A": 355,
+    "B": 160,
+    "C": 65,
+    "F": 7.03
+   },
+   {
+    "uva": 10407,
+    "title": "Simple division",
+    "A": 79,
+    "B": 42,
+    "C": 21,
+    "F": 2.27
+   },
+   {
+    "uva": 501,
+    "title": "Black Box",
+    "A": 33,
+    "B": 26,
+    "C": 13,
+    "F": 1.41
+   },
+   {
+    "uva": 753,
+    "title": "A Plug for UNIX",
+    "A": 6,
+    "B": 5,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2014-05-27",
+  "avg": 1.15,
+  "problems": [
+   {
+    "uva": 10783,
+    "title": "Odd Sum",
+    "A": 1790,
+    "B": 1252,
+    "C": 1166,
+    "F": 82.87
+   },
+   {
+    "uva": 141,
+    "title": "The Spot Game",
+    "A": 157,
+    "B": 102,
+    "C": 43,
+    "F": 3.06
+   },
+   {
+    "uva": 105,
+    "title": "The Skyline Problem",
+    "A": 549,
+    "B": 386,
+    "C": 320,
+    "F": 22.74
+   },
+   {
+    "uva": 516,
+    "title": "Prime Land",
+    "A": 58,
+    "B": 35,
+    "C": 26,
+    "F": 1.85
+   },
+   {
+    "uva": 11039,
+    "title": "Building designing",
+    "A": 211,
+    "B": 118,
+    "C": 47,
+    "F": 3.34
+   },
+   {
+    "uva": 10099,
+    "title": "The Tourist Guide",
+    "A": 28,
+    "B": 18,
+    "C": 10,
+    "F": 0.71
+   },
+   {
+    "uva": 1101,
+    "title": "addmul",
+    "A": 8,
+    "B": 7,
+    "C": 0,
+    "F": 0.0
+   }
+  ]
+ },
+ {
+  "date": "2014-03-25",
+  "avg": 0.93,
+  "problems": [
+   {
+    "uva": 10931,
+    "title": "Parity",
+    "A": 1817,
+    "B": 949,
+    "C": 728,
+    "F": 48.99
+   },
+   {
+    "uva": 406,
+    "title": "Prime Cuts",
+    "A": 731,
+    "B": 428,
+    "C": 321,
+    "F": 21.6
+   },
+   {
+    "uva": 401,
+    "title": "Palindromes",
+    "A": 713,
+    "B": 311,
+    "C": 214,
+    "F": 14.4
+   },
+   {
+    "uva": 11040,
+    "title": "Add bricks in the wall",
+    "A": 151,
+    "B": 128,
+    "C": 113,
+    "F": 7.6
+   },
+   {
+    "uva": 11094,
+    "title": "Continents",
+    "A": 62,
+    "B": 37,
+    "C": 9,
+    "F": 0.61
+   },
+   {
+    "uva": 929,
+    "title": "Number Maze",
+    "A": 63,
+    "B": 37,
+    "C": 3,
+    "F": 0.2
+   },
+   {
+    "uva": 315,
+    "title": "Network",
+    "A": 18,
+    "B": 10,
+    "C": 1,
+    "F": 0.07
+   }
+  ]
+ },
+ {
+  "date": "2013-12-17",
+  "avg": 1.27,
+  "problems": [
+   {
+    "uva": 12602,
+    "title": "Nice Licence Plates",
+    "A": 1230,
+    "B": 838,
+    "C": 706,
+    "F": 55.2
+   },
+   {
+    "uva": 10235,
+    "title": "Simply Emirp",
+    "A": 1780,
+    "B": 814,
+    "C": 606,
+    "F": 47.38
+   },
+   {
+    "uva": 11917,
+    "title": "Do Your Own Homework!",
+    "A": 434,
+    "B": 282,
+    "C": 253,
+    "F": 19.78
+   },
+   {
+    "uva": 10666,
+    "title": "The Eurocup is Here!",
+    "A": 57,
+    "B": 54,
+    "C": 37,
+    "F": 2.89
+   },
+   {
+    "uva": 657,
+    "title": "The Die is Cast",
+    "A": 52,
+    "B": 32,
+    "C": 15,
+    "F": 1.17
+   },
+   {
+    "uva": 12654,
+    "title": "Patches",
+    "A": 19,
+    "B": 16,
+    "C": 5,
+    "F": 0.39
+   },
+   {
+    "uva": 288,
+    "title": "Arithmetic Operations With Large Integers",
+    "A": 18,
+    "B": 12,
+    "C": 2,
+    "F": 0.16
+   }
+  ]
+ },
+ {
+  "date": "2013-10-01",
+  "avg": 1.38,
+  "problems": [
+   {
+    "uva": 10190,
+    "title": "Divide, But Not Quite Conquer!",
+    "A": 1312,
+    "B": 597,
+    "C": 439,
+    "F": 54.13
+   },
+   {
+    "uva": 264,
+    "title": "Count on Cantor",
+    "A": 516,
+    "B": 357,
+    "C": 316,
+    "F": 38.96
+   },
+   {
+    "uva": 10018,
+    "title": "Reverse and Add",
+    "A": 380,
+    "B": 280,
+    "C": 262,
+    "F": 32.31
+   },
+   {
+    "uva": 612,
+    "title": "DNA Sorting",
+    "A": 193,
+    "B": 86,
+    "C": 55,
+    "F": 6.78
+   },
+   {
+    "uva": 151,
+    "title": "Power Crisis",
+    "A": 64,
+    "B": 52,
+    "C": 45,
+    "F": 5.55
+   },
+   {
+    "uva": 11336,
+    "title": "DRM",
+    "A": 23,
+    "B": 15,
+    "C": 4,
+    "F": 0.49
+   },
+   {
+    "uva": 10309,
+    "title": "Turn the Lights Off",
+    "A": 6,
+    "B": 5,
+    "C": 1,
+    "F": 0.12
+   }
+  ]
+ }
+]

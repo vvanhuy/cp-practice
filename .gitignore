@@ -69,3 +69,6 @@ Testing/
 *.bin
 my.txt
 .cph/
+# Đề UVa tải về (bản quyền UVa, chỉ giữ trên máy)
+problem.pdf
+problem.txt

@@ -1,0 +1,16 @@
+// UVa 10161 - Ant on a Chessboard
+// Ý tưởng:
+// Lỗi đã gặp:
+// Kết quả:
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    while (cin >> n) {  // đọc đến hết input (EOF), kiểu đề UVa/CPE
+    }
+    return 0;
+}

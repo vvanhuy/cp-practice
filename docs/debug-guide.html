@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Đọc lỗi và Debug C++</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  :root { --ink:#1d2433; --muted:#5b6475; --line:#d7dce5; --accent:#2457c5; --bg-code:#f4f6fa;
+          --err:#b42318; --err-bg:#fdecea; --warn:#9a6700; --warn-bg:#fff6dc; --ok:#1a7f37; --ok-bg:#e8f6ec; --tip-bg:#eef3fd; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Noto Sans','DejaVu Sans',sans-serif; color: var(--ink); font-size: 10.2pt; line-height: 1.5; margin: 0; background:#fff; }
+  h1 { font-size: 21pt; margin: 0 0 4mm; color: var(--accent); }
+  h2 { font-size: 15pt; margin: 0 0 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid var(--accent); color: var(--accent); break-after: avoid; }
+  h3 { font-size: 11.6pt; margin: 5mm 0 2mm; break-after: avoid; }
+  h4 { font-size: 10.4pt; margin: 3.5mm 0 1.5mm; break-after: avoid; }
+  p { margin: 1.5mm 0; }
+  ul, ol { margin: 1.5mm 0; padding-left: 6mm; }
+  li { margin: .6mm 0; }
+  section { break-before: page; }
+  section.first { break-before: auto; }
+  code, pre, kbd, .flow { font-family: 'JetBrains Mono','DejaVu Sans Mono',monospace; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+  code { background: var(--bg-code); padding: 0 1.2mm; border-radius: 1mm; font-size: 9pt; }
+  pre { background: var(--bg-code); border: 1px solid var(--line); border-radius: 1.5mm; padding: 2.5mm 3mm; font-size: 8.6pt;
+        line-height: 1.42; white-space: pre-wrap; word-break: break-word; margin: 2mm 0; break-inside: avoid; }
+  pre.term { background: #1e2230; color: #e6e9f0; border-color: #1e2230; }
+  pre.term .e { color: #ff8a80; } pre.term .w { color: #ffd166; } pre.term .h { color: #7ee2a8; font-weight: 700; } pre.term .d { color: #8a93a8; }
+  kbd { border: 1px solid #b8c0cc; border-bottom-width: 2px; border-radius: 1mm; padding: 0 1.2mm; font-size: 8.6pt; background: #fff; white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0; font-size: 9pt; break-inside: auto; }
+  tr { break-inside: avoid; }
+  th, td { border: 1px solid var(--line); padding: 1.3mm 2mm; vertical-align: top; text-align: left; }
+  th { background: #eef1f6; font-weight: 700; }
+  td code { font-size: 8.4pt; }
+  .box { border-radius: 1.5mm; padding: 2.5mm 3.5mm; margin: 2.5mm 0; break-inside: avoid; border-left: 4px solid; }
+  .tip { background: var(--tip-bg); border-color: var(--accent); }
+  .warn { background: var(--warn-bg); border-color: var(--warn); }
+  .err { background: var(--err-bg); border-color: var(--err); }
+  .ok { background: var(--ok-bg); border-color: var(--ok); }
+  .box b.t { display:block; margin-bottom: .8mm; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .two > div { min-width: 0; }
+  .lbl { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; margin-bottom: -1mm; }
+  .lbl.bad { color: var(--err); } .lbl.good { color: var(--ok); }
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+  .cover h1 { font-size: 30pt; line-height: 1.2; }
+  .cover .sub { font-size: 13pt; color: var(--muted); margin-bottom: 10mm; }
+  .toc { columns: 1; font-size: 10.5pt; }
+  .toc li { margin: 1.4mm 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 8.8pt; }
+  .flow { font-family: 'JetBrains Mono','DejaVu Sans Mono',monospace; font-size: 8.8pt; background: #fafbfd; border: 1px dashed var(--line); padding: 3mm; border-radius: 1.5mm; white-space: pre; line-height: 1.5; break-inside: avoid; }
+  .tag { display:inline-block; font-size: 8pt; font-weight:700; padding: 0 1.6mm; border-radius: 1mm; color:#fff; }
+  .tag.ce{background:#6941c6} .tag.w{background:#b54708} .tag.re{background:#b42318} .tag.wa{background:#c11574} .tag.tle{background:#175cd3}
+</style>
+</head>
+<body>
+
+<!-- ============================ BÌA ============================ -->
+<section class="first cover">
+  <div class="muted small">cp-practice · Tài liệu tra cứu</div>
+  <h1>Đọc lỗi &amp; Debug<br>chương trình C++</h1>
+  <div class="sub">Dành cho người mới học Lập trình 1, Lập trình 2 và luyện thi CPE<br>trên Ubuntu + VS Code + g++</div>
+  <ol class="toc">
+    <li>Bản đồ các loại lỗi — từ máy bạn đến judge</li>
+    <li>Lỗi compile (CE) — cách đọc và 16 lỗi hay gặp</li>
+    <li>Warning — "lỗi ngầm" mà compiler đã báo trước</li>
+    <li>Lỗi khi chạy (RE) — đọc báo cáo sanitizer</li>
+    <li>Sai kết quả (WA) — danh sách kiểm tra</li>
+    <li>Quá thời gian (TLE) và chương trình bị treo</li>
+    <li>Debugger trong VS Code — từ cơ bản đến nâng cao</li>
+    <li>Debug không cần debugger: in ra màn hình, <code>assert</code></li>
+    <li>Quy trình tìm lỗi có hệ thống</li>
+    <li>Bài tập thực hành (<code>learn-debug/</code>)</li>
+    <li>Bảng tra nhanh (1 trang)</li>
+  </ol>
+  <p class="muted small" style="margin-top:12mm">Mọi thông báo lỗi trong tài liệu này được lấy <b>nguyên văn</b> bằng cách compile và chạy thật với g++ 15 trên Ubuntu.
+  Phiên bản g++ khác có thể diễn đạt hơi khác, nhưng cấu trúc và ý nghĩa giữ nguyên.</p>
+</section>
+
+<!-- ============================ 1 ============================ -->
+<section>
+<h2>1. Bản đồ các loại lỗi</h2>
+<p>Mọi chương trình đi qua 3 cửa: <b>compile</b> → <b>chạy</b> → <b>so kết quả</b>. Lỗi ở cửa nào thì có cách tìm riêng.</p>
+<div class="flow">Viết code ──▶ [ COMPILE ] ──✗──▶ <span class="tag ce">CE</span>  Lỗi cú pháp: không tạo được chương trình
+                 │
+                 ├──⚠──▶ <span class="tag w">WARNING</span> Vẫn chạy, nhưng gần như chắc chắn có bug
+                 ▼
+             [  CHẠY  ] ──✗──▶ <span class="tag re">RE</span>  Crash: tràn mảng, chia 0, con trỏ sai...
+                 │       ──∞──▶ <span class="tag tle">TLE</span> Treo hoặc chạy quá chậm
+                 ▼
+          [ SO OUTPUT ] ──✗──▶ <span class="tag wa">WA</span>  Chạy xong nhưng in sai</div>
+
+<p><b>Càng xuống dưới càng khó tìm.</b> Với CE, compiler chỉ thẳng số dòng. Với WA, không ai chỉ cho bạn — phải tự đi tìm.
+Vì vậy mục tiêu là <b>đẩy lỗi lên càng cao càng tốt</b>: bật warning để bắt bug ngay lúc compile, bật sanitizer để biến "sai âm thầm" thành "crash có chỉ dòng".</p>
+
+<h3>Kết quả của judge (UVa, ZeroJudge, CPE) và ý nghĩa</h3>
+<table>
+<tr><th style="width:22%">Judge báo</th><th style="width:38%">Nghĩa</th><th>Trên máy bạn thấy gì / làm gì</th></tr>
+<tr><td><b>AC</b> Accepted</td><td>Đúng</td><td><code>./run.sh</code> báo ✅ AC</td></tr>
+<tr><td><b>CE</b> Compile Error</td><td>Judge không compile được</td><td><code>❌ Compile lỗi</code>. Lưu ý: judge CPE dùng GCC cũ (6.3/7.2) — code dùng tính năng C++17 có thể CE trên judge dù máy bạn chạy được</td></tr>
+<tr><td><b>WA</b> Wrong Answer</td><td>In sai</td><td><code>❌ WA</code> + diff. Xem mục 5</td></tr>
+<tr><td><b>PE</b> Presentation Error</td><td>Đúng số, sai định dạng (dấu cách, dòng trống)</td><td>Có trên UVa. Kiểm tra dấu cách cuối dòng, dòng trống giữa các test</td></tr>
+<tr><td><b>RE</b> Runtime Error</td><td>Chương trình crash</td><td><code>💥 RE</code>. Xem mục 4</td></tr>
+<tr><td><b>TLE</b> Time Limit Exceeded</td><td>Quá thời gian</td><td>Treo hoặc rất chậm. Xem mục 6</td></tr>
+<tr><td><b>MLE</b> Memory Limit Exceeded</td><td>Dùng quá nhiều bộ nhớ</td><td>Mảng quá to, hoặc đệ quy/vòng lặp đẩy phần tử vô hạn vào vector</td></tr>
+<tr><td><b>OLE</b> Output Limit Exceeded</td><td>In ra quá nhiều</td><td>Thường do vòng lặp vô hạn có lệnh <code>cout</code>, hoặc quên xóa dòng in debug</td></tr>
+</table>
+
+<h3>Công cụ đã setup sẵn trong <code>cp-practice</code></h3>
+<table>
+<tr><th style="width:30%">Công cụ</th><th>Bắt được loại lỗi nào</th></tr>
+<tr><td><code>-Wall -Wextra -Wshadow</code></td><td>Warning: so sánh nhầm <code>=</code>/<code>==</code>, biến chưa khởi tạo, trùng tên biến...</td></tr>
+<tr><td><code>-fsanitize=address</code> (ASan)</td><td>Tràn mảng/vector, tràn stack, con trỏ sai, dùng vùng nhớ đã giải phóng</td></tr>
+<tr><td><code>-fsanitize=undefined</code> (UBSan)</td><td>Tràn số <code>int</code>, chia 0, dịch bit quá giới hạn</td></tr>
+<tr><td><code>-D_GLIBCXX_DEBUG</code> (chỉ bản build-debug)</td><td>Chỉ số vector sai, iterator hỏng, <code>sort</code> với comparator sai</td></tr>
+<tr><td><code>-g</code></td><td>Giúp báo lỗi và debugger chỉ ra đúng <b>số dòng</b> trong file <code>.cpp</code></td></tr>
+<tr><td>Error Lens</td><td>Hiện lỗi/warning ngay cuối dòng code, không cần đọc terminal</td></tr>
+<tr><td>Debugger (<kbd>F5</kbd>)</td><td>Lỗi logic (WA) — xem giá trị biến từng bước</td></tr>
+</table>
+</section>
+
+<!-- ============================ 2 ============================ -->
+<section>
+<h2>2. Lỗi compile (CE)</h2>
+
+<h3>2.1. Giải phẫu một dòng lỗi</h3>
+<pre class="term"><span class="h">sol.cpp:9:5:</span> <span class="e">error:</span> expected initializer before ‘cin’
+└──┬──┘ │ │  └─┬──┘ └────────────── nội dung ──────────────┘
+  file dòng cột loại</pre>
+<ul>
+<li><b>file:dòng:cột</b> — vị trí. Trong terminal VS Code, giữ <kbd>Ctrl</kbd> và click vào đó để nhảy thẳng tới dòng lỗi.</li>
+<li><b>loại</b> — <code>error</code> (phải sửa mới compile được), <code>warning</code> (vẫn compile được nhưng nên sửa), <code>note</code> (giải thích thêm cho dòng phía trên, đọc kèm).</li>
+<li><b>nội dung</b> — compiler mô tả điều nó <i>mong đợi</i> mà không thấy. Từ khóa hay gặp: <i>expected</i> (đang chờ), <i>declared</i> (khai báo), <i>scope</i> (phạm vi), <i>conversion</i> (chuyển kiểu), <i>operand</i> (toán hạng).</li>
+</ul>
+
+<h3>2.2. Ba quy tắc vàng</h3>
+<div class="box tip"><b class="t">① Chỉ đọc lỗi ĐẦU TIÊN</b>
+Một lỗi (ví dụ thiếu <code>}</code>) có thể sinh ra hàng chục lỗi "dây chuyền" phía sau. Sửa lỗi đầu tiên → compile lại → đọc lỗi đầu tiên mới. Lặp lại.</div>
+<div class="box tip"><b class="t">② Lỗi thật thường nằm ở dòng được báo, HOẶC NGAY TRƯỚC NÓ</b>
+Compiler chỉ phát hiện ra thiếu <code>;</code> khi đọc sang dòng kế tiếp. Nếu dòng được báo trông hoàn toàn đúng → nhìn lên dòng trên.</div>
+<div class="box tip"><b class="t">③ Lỗi dài toàn chữ <code>std::__cxx11::basic_...</code> và hàng chục dòng <code>note: candidate</code>?</b>
+Đó là lỗi liên quan thư viện chuẩn (template). Bỏ qua phần dài dòng, chỉ đọc <b>dòng <code>error:</code> đầu tiên có tên file của bạn</b> và tìm cụm <code>operand types are ‘A’ and ‘B’</code> — nó cho biết bạn đang dùng toán tử với hai kiểu dữ liệu không hợp nhau.</div>
+
+<h3>2.3. Mười sáu lỗi compile hay gặp nhất</h3>
+<table>
+<tr><th style="width:38%">Thông báo (g++ 15)</th><th style="width:27%">Nghĩa</th><th>Nguyên nhân thường gặp → cách sửa</th></tr>
+<tr><td><code>expected ‘;’ before ‘return’</code></td><td>Thiếu dấu <code>;</code></td><td>Dòng <b>phía trên</b> quên <code>;</code></td></tr>
+<tr><td><code>expected initializer before ‘cin’</code></td><td>Thiếu <code>;</code> sau khai báo</td><td>Viết <code>int n</code> rồi xuống dòng quên <code>;</code></td></tr>
+<tr><td><code>‘tong’ was not declared in this scope; did you mean ‘long’?</code></td><td>Không biết tên này là gì</td><td>Gõ sai tên; chưa khai báo; hoặc khai báo bên trong <code>{ }</code> khác (ví dụ trong vòng <code>for</code>) rồi dùng bên ngoài. Gợi ý <i>did you mean</i> đôi khi đoán sai — đừng tin mù quáng</td></tr>
+<tr><td><code>expected ‘}’ at end of input</code></td><td>Thiếu dấu <code>}</code></td><td>Đếm lại cặp ngoặc. Bấm <kbd>Ctrl+S</kbd> để format, chỗ thụt lề lệch chính là chỗ thiếu</td></tr>
+<tr><td><code>expected ‘)’ before ...</code> / <code>expected primary-expression before ...</code></td><td>Biểu thức viết sai cú pháp</td><td>Thiếu ngoặc, thừa dấu phẩy, viết <code>if x &gt; 0</code> thiếu ngoặc tròn</td></tr>
+<tr><td><code>conversion from ‘int’ to non-scalar type ‘std::string’ ... requested</code></td><td>Sai kiểu dữ liệu</td><td>Gán số vào <code>string</code>. Muốn đổi số → chuỗi dùng <code>to_string(x)</code>, chuỗi → số dùng <code>stoi(s)</code> / <code>stoll(s)</code></td></tr>
+<tr><td><code>multi-character character constant</code> (kèm lỗi conversion)</td><td>Dùng nháy đơn cho chuỗi</td><td><code>'ab'</code> sai → <code>"ab"</code>. Nháy đơn chỉ chứa <b>một</b> ký tự: <code>'a'</code></td></tr>
+<tr><td><code>no match for ‘operator&lt;&lt;’ (operand types are ‘std::ostream’ ... and ‘std::vector&lt;int&gt;’)</code></td><td><code>cout</code> không in được kiểu này</td><td>Không thể <code>cout &lt;&lt; v</code> với vector/struct/pair. Phải in từng phần tử bằng vòng lặp</td></tr>
+<tr><td><code>no match for ‘operator&gt;&gt;’</code></td><td><code>cin</code> không đọc được kiểu này</td><td>Đọc vào vector/struct trực tiếp, hoặc đọc vào hằng số. Đọc từng phần tử</td></tr>
+<tr><td><code>invalid types ‘int[int]’ for array subscript</code></td><td>Dùng <code>[ ]</code> trên biến không phải mảng</td><td>Hai biến trùng tên (một mảng, một <code>int</code>) — biến <code>int</code> che mất mảng</td></tr>
+<tr><td><code>‘class std::vector&lt;int&gt;’ has no member named ‘push’</code></td><td>Không có hàm này</td><td>Nhớ sai tên hàm: <code>push_back</code>, <code>size()</code>, <code>empty()</code>. Gõ <code>v.</code> rồi chờ IntelliSense gợi ý</td></tr>
+<tr><td><code>too few arguments to function ‘int f(int, int)’</code></td><td>Gọi hàm thiếu tham số</td><td>Đếm lại số tham số khi gọi so với khi định nghĩa. Có <i>too many</i> là ngược lại</td></tr>
+<tr><td><code>assignment of read-only variable ‘x’</code></td><td>Gán vào biến <code>const</code></td><td>Bỏ <code>const</code>, hoặc dùng biến khác</td></tr>
+<tr><td><code>redeclaration of ‘int x’</code> / <code>conflicting declaration</code></td><td>Khai báo một tên hai lần</td><td>Trong cùng một khối <code>{ }</code> có hai dòng <code>int x</code></td></tr>
+<tr><td><code>undefined reference to `main'</code> + <code>ld returned 1 exit status</code></td><td><b>Lỗi liên kết</b> (linker): thiếu hàm <code>main</code></td><td>Viết sai <code>Main</code>, <code>mian</code>. Lỗi có <code>ld</code>/<code>collect2</code> là lỗi ở bước liên kết, sau khi compile xong</td></tr>
+<tr><td><code>undefined reference to `f(int)'</code></td><td>Khai báo hàm nhưng chưa viết thân hàm</td><td>Có dòng <code>int f(int);</code> nhưng quên viết phần <code>{ ... }</code>, hoặc tham số khi định nghĩa khác khi khai báo</td></tr>
+</table>
+</section>
+
+<!-- ============================ 3 ============================ -->
+<section>
+<h2>3. Warning — lỗi ngầm compiler đã báo trước</h2>
+<p>Warning không chặn compile, nên người mới hay bỏ qua. Nhưng trong code thi đấu, <b>gần như mọi warning đều là bug</b>.
+Quy tắc: <b>compile phải sạch — 0 warning</b> (thanh trạng thái VS Code hiện <code>⊗ 0 ⚠ 0</code>).</p>
+
+<table>
+<tr><th style="width:36%">Warning (g++ 15)</th><th style="width:30%">Code gây ra</th><th>Vì sao là bug → sửa</th></tr>
+<tr><td><code>suggest parentheses around assignment used as truth value [-Wparentheses]</code></td><td><code>if (x = 0)</code></td><td><code>=</code> là <b>gán</b>, không phải so sánh. Điều kiện luôn sai và <code>x</code> bị đổi thành 0. Sửa: <code>==</code></td></tr>
+<tr><td><code>‘cnt’ may be used uninitialized [-Wmaybe-uninitialized]</code></td><td><code>int cnt; cnt++;</code></td><td>Biến cục bộ chưa gán chứa <b>giá trị rác</b>. Trên máy có thể ra đúng, lên judge ra sai. Sửa: <code>int cnt = 0;</code></td></tr>
+<tr><td><code>statement has no effect [-Wunused-value]</code></td><td><code>n / 10;</code></td><td>Tính xong rồi vứt đi. Sửa: <code>n /= 10;</code> hoặc <code>n = n / 10;</code></td></tr>
+<tr><td><code>suggest braces around empty body in an ‘if’ statement [-Wempty-body]</code></td><td><code>if (x == 2); cout &lt;&lt; x;</code></td><td>Dấu <code>;</code> ngay sau <code>if</code> làm thân <code>if</code> rỗng — dòng tiếp theo <b>luôn chạy</b>. Xóa <code>;</code></td></tr>
+<tr><td><code>control reaches end of non-void function [-Wreturn-type]</code></td><td>Hàm <code>int</code> có nhánh không <code>return</code></td><td>Kết quả trả về là rác, có thể crash. Thêm <code>return</code> cho mọi nhánh</td></tr>
+<tr><td><code>comparison of integer expressions of different signedness: ‘int’ and ‘...size_type’ [-Wsign-compare]</code></td><td><code>for (int i = 0; i &lt; v.size(); i++)</code></td><td>Thường vô hại, nhưng <code>v.size() - 1</code> khi vector rỗng ra số khổng lồ (không âm được). Sửa: <code>i &lt; (int)v.size()</code></td></tr>
+<tr><td><code>declaration of ‘n’ shadows a previous local [-Wshadow]</code></td><td>Khai báo <code>n</code> bên trong khi bên ngoài đã có <code>n</code></td><td>Bạn tưởng đang sửa biến ngoài, thật ra đang sửa biến trong. Đổi tên một trong hai</td></tr>
+<tr><td><code>unused variable ‘x’ [-Wunused-variable]</code></td><td>Khai báo mà không dùng</td><td>Thường vô hại. Nhưng hay là dấu hiệu bạn <b>dùng nhầm biến khác</b> thay vì biến này</td></tr>
+<tr><td><code>array subscript 5 is above array bounds of ‘int [3]’ [-Warray-bounds]</code></td><td><code>int a[3]; a[5] = 1;</code></td><td>Truy cập ngoài mảng — compiler đã nhìn thấy trước khi chạy. Chắc chắn RE/WA</td></tr>
+<tr><td><code>format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long long’ [-Wformat]</code></td><td><code>printf("%d", x)</code> với <code>long long x</code></td><td>In ra số sai. Dùng <code>%lld</code>, hoặc dùng <code>cout</code></td></tr>
+</table>
+
+<div class="box warn"><b class="t">Mẹo: biến warning thành error</b>
+Thêm cờ <code>-Werror</code> vào lệnh compile, khi đó mọi warning đều chặn compile như error — buộc bạn phải sửa. Hữu ích trong giai đoạn mới học để tập thói quen.</div>
+</section>
+
+<!-- ============================ 4 ============================ -->
+<section>
+<h2>4. Lỗi khi chạy (RE) — đọc báo cáo sanitizer</h2>
+
+<div class="box err"><b class="t">Vì sao phải có sanitizer?</b>
+Mình đã chạy thử chương trình ghi vào <code>a[5]</code> của một <code>vector</code> 5 phần tử: <b>không có sanitizer → chạy bình thường, exit code 0</b>, không báo gì.
+Lỗi vẫn ở đó — nó âm thầm ghi đè lên vùng nhớ khác, và lên judge sẽ ra WA hoặc RE một cách "khó hiểu". Sanitizer biến lỗi âm thầm thành lỗi <b>có chỉ số dòng</b>.</div>
+
+<h3>4.1. Đọc báo cáo AddressSanitizer (ASan)</h3>
+<pre class="term"><span class="e">==22221==ERROR: AddressSanitizer: <b>heap-buffer-overflow</b></span> on address 0x6d87...
+<span class="d">  └─ ① LOẠI LỖI</span>
+<span class="w">WRITE of size 4</span> at 0x6d8747be0054 thread T0
+<span class="d">  └─ ② ghi (WRITE) hay đọc (READ)</span>
+    <span class="h">#0 0x60aa7b8b058f in main /home/huy/.../sol.cpp:3</span>
+<span class="d">  └─ ③ DÒNG LỖI: dòng #0 (#1, #2...) đầu tiên có file của bạn</span>
+    #1 0x7540b6a2a600 in __libc_start_call_main ...
+<span class="d">  └─ bỏ qua: code hệ thống</span>
+<span class="d">... địa chỉ bộ nhớ, Shadow bytes, legend — bỏ qua hết ...</span>
+<span class="e">SUMMARY: AddressSanitizer: heap-buffer-overflow .../sol.cpp:3 in main</span>
+<span class="d">  └─ tóm tắt: loại lỗi + dòng</span></pre>
+<p><b>Chỉ cần 3 thứ:</b> ① loại lỗi ở dòng <code>ERROR:</code>; ② <code>READ</code> hay <code>WRITE</code>; ③ dòng <code>#0</code> (hoặc <code>#1</code>, <code>#2</code>...) <b>đầu tiên có tên file của bạn</b>. Nếu lỗi xảy ra trong hàm bạn tự viết, stack trace cho thấy cả chuỗi gọi: <code>#0 in f(int) sol.cpp:5</code> ← <code>#1 in main sol.cpp:12</code>.</p>
+
+<h3>4.2. Đọc báo cáo UndefinedBehaviorSanitizer (UBSan)</h3>
+<pre class="term"><span class="h">overflow.cpp:3:59:</span> <span class="e">runtime error:</span> signed integer overflow: 2000000000 + 2000000000 cannot be represented in type 'int'</pre>
+<div class="box warn"><b class="t">⚠️ UBSan chỉ báo, KHÔNG dừng chương trình</b>
+Chương trình chạy tiếp với kết quả sai và <b>exit code vẫn là 0</b> → <code>run.sh</code> sẽ báo <code>❌ WA</code> chứ không phải <code>💥 RE</code>.
+Vì vậy mỗi khi WA, <b>hãy kéo terminal lên xem có dòng <code>runtime error:</code> nào không</b>.</div>
+
+<h3>4.3. Bảng tra lỗi runtime (đã chạy thử thật)</h3>
+<table>
+<tr><th style="width:30%">Từ khóa trong báo cáo</th><th style="width:28%">Nghĩa</th><th>Nguyên nhân hay gặp → cách sửa</th></tr>
+<tr><td><code>heap-buffer-overflow</code></td><td>Truy cập ngoài <b>vector</b> / mảng cấp phát động</td><td>Vòng lặp <code>i &lt;= n</code> thay vì <code>i &lt; n</code>; chỉ số âm; vector chưa <code>resize</code></td></tr>
+<tr><td><code>stack-buffer-overflow</code></td><td>Truy cập ngoài <b>mảng cục bộ</b> <code>int a[N]</code></td><td>Như trên. Kiểm tra lại kích thước mảng so với giới hạn đề</td></tr>
+<tr><td><code>global-buffer-overflow</code></td><td>Truy cập ngoài <b>mảng toàn cục</b></td><td>Mảng khai báo nhỏ hơn giới hạn đề. Khai báo dư ra: <code>N + 5</code></td></tr>
+<tr><td><code>stack-overflow</code> (trong hàm đệ quy)</td><td>Đệ quy quá sâu</td><td>Thiếu điều kiện dừng, hoặc điều kiện dừng không bao giờ đạt. Kiểm tra trường hợp cơ sở</td></tr>
+<tr><td><code>stack-overflow</code> (ở dòng khai báo mảng)</td><td>Mảng cục bộ quá lớn</td><td><code>int a[10000000]</code> trong <code>main</code> (40 MB) vượt bộ nhớ stack (~8 MB). <b>Khai báo mảng lớn ở ngoài <code>main</code></b> (toàn cục) hoặc dùng <code>vector</code></td></tr>
+<tr><td><code>runtime error: division by zero</code> + <code>FPE</code></td><td>Chia hoặc lấy dư cho 0</td><td>Kiểm tra mẫu số trước khi chia; có test nào cho số 0 không?</td></tr>
+<tr><td><code>SEGV on unknown address 0x000000000000</code></td><td>Dùng con trỏ <code>nullptr</code></td><td>Con trỏ chưa trỏ tới đâu đã dùng <code>*p</code> (hay gặp ở LT2: danh sách liên kết, cây)</td></tr>
+<tr><td><code>heap-use-after-free</code></td><td>Dùng vùng nhớ đã <code>delete</code></td><td>Xóa node rồi vẫn truy cập; giữ iterator/con trỏ tới vector rồi <code>push_back</code></td></tr>
+<tr><td><code>runtime error: signed integer overflow</code></td><td>Tràn số <code>int</code></td><td>Đổi sang <code>long long</code>. Chú ý cả phép nhân: <code>a * b</code> với hai <code>int</code> vẫn tràn dù gán vào <code>long long</code> → viết <code>1LL * a * b</code></td></tr>
+<tr><td><code>runtime error: shift exponent 40 is too large for 32-bit type 'int'</code></td><td>Dịch bit quá 31</td><td><code>1 &lt;&lt; 40</code> sai → <code>1LL &lt;&lt; 40</code></td></tr>
+<tr><td><code>runtime error: index 5 out of bounds for type 'int [3]'</code></td><td>Chỉ số ngoài mảng tĩnh</td><td>Như <code>stack-buffer-overflow</code></td></tr>
+<tr><td><code>runtime error: load of value ..., which is not a valid value for type 'bool'</code></td><td>Dùng biến chưa khởi tạo</td><td>Gán giá trị đầu cho mọi biến</td></tr>
+</table>
+
+<h3>4.4. Exit code — khi chạy không có sanitizer</h3>
+<table>
+<tr><th style="width:18%">Exit code</th><th style="width:34%">Shell báo</th><th>Nghĩa</th></tr>
+<tr><td><code>0</code></td><td>(không báo gì)</td><td>Kết thúc bình thường — <b>không có nghĩa là đúng</b></td></tr>
+<tr><td><code>1</code></td><td>(khối chữ đỏ của sanitizer)</td><td>Sanitizer phát hiện lỗi và dừng chương trình</td></tr>
+<tr><td><code>134</code></td><td><code>Aborted</code></td><td><code>assert</code> sai, hoặc thư viện chuẩn phát hiện lỗi (ví dụ <code>_GLIBCXX_DEBUG</code>)</td></tr>
+<tr><td><code>136</code></td><td><code>Floating point exception</code></td><td>Chia cho 0 (với số nguyên)</td></tr>
+<tr><td><code>139</code></td><td><code>Segmentation fault</code></td><td>Truy cập bộ nhớ sai: tràn mảng xa, <code>nullptr</code>, tràn stack</td></tr>
+</table>
+</section>
+
+<!-- ============================ 5 ============================ -->
+<section>
+<h2>5. Sai kết quả (WA) — danh sách kiểm tra</h2>
+<p>WA là lỗi khó nhất vì không ai chỉ dòng cho bạn. Trước khi mở debugger, đi qua danh sách này — <b>80% lỗi WA nằm ở đây</b>.</p>
+
+<h3>5.1. Mười lỗi WA kinh điển</h3>
+<table>
+<tr><th style="width:4%">#</th><th style="width:26%">Lỗi</th><th>Dấu hiệu và cách kiểm tra</th></tr>
+<tr><td>1</td><td><b>Tràn số</b></td><td>Đề cho số tới 10<sup>9</sup>, 2<sup>31</sup>, 2<sup>32</sup>... mà dùng <code>int</code> (tối đa ≈ 2,1×10<sup>9</sup>). Tổng/tích của nhiều số rất dễ vượt. → <code>long long</code> (≈ 9,2×10<sup>18</sup>). Nhìn terminal tìm <code>signed integer overflow</code></td></tr>
+<tr><td>2</td><td><b>Quên reset biến giữa các test</b></td><td>Đề có nhiều test (<code>while (cin &gt;&gt; n)</code>) mà biến đếm/tổng/mảng khai báo <b>ngoài</b> vòng lặp → test 2 cộng dồn kết quả test 1. Test đầu đúng, test sau sai là dấu hiệu rõ nhất. → Khai báo biến <b>bên trong</b> vòng lặp</td></tr>
+<tr><td>3</td><td><b>Sai định dạng output</b></td><td>Thiếu/thừa dấu cách, dòng trống giữa các test, viết hoa/thường, <code>Case #1:</code> thiếu dấu cách... Đọc lại phần Output của đề <b>từng chữ</b>. Dùng diff của <code>run.sh</code></td></tr>
+<tr><td>4</td><td><b>Trường hợp biên</b></td><td><code>n = 0</code>, <code>n = 1</code>, số âm, số lớn nhất, chuỗi rỗng, tất cả phần tử bằng nhau, input đảo thứ tự. Sample của đề thường <b>không</b> có những test này — phải tự thêm</td></tr>
+<tr><td>5</td><td><b>Khởi tạo max/min sai</b></td><td><code>int mx = 0</code> sai khi dãy toàn số âm. → <code>mx = a[0]</code> hoặc <code>mx = INT_MIN</code> / <code>LLONG_MIN</code></td></tr>
+<tr><td>6</td><td><b>Chia nguyên</b></td><td><code>double avg = sum / n;</code> với <code>sum</code>, <code>n</code> là <code>int</code> → phép chia nguyên chạy <b>trước</b> rồi mới đổi sang <code>double</code>. → <code>(double)sum / n</code></td></tr>
+<tr><td>7</td><td><b>Số thực</b></td><td>Làm tròn sai số chữ số (<code>fixed &lt;&lt; setprecision(2)</code>); so sánh <code>a == b</code> với <code>double</code> → dùng <code>fabs(a - b) &lt; 1e-9</code>; in ra <code>-0.00</code></td></tr>
+<tr><td>8</td><td><b>Trộn <code>cin &gt;&gt;</code> với <code>getline</code></b></td><td>Sau <code>cin &gt;&gt; n</code>, ký tự xuống dòng vẫn còn trong bộ đệm → <code>getline</code> đầu tiên đọc ra <b>chuỗi rỗng</b>. → Thêm <code>cin.ignore();</code> trước <code>getline</code>, hoặc dùng <code>getline</code> cho mọi thứ</td></tr>
+<tr><td>9</td><td><b>Đọc sai kiểu input</b></td><td>Đề đọc đến EOF mà code chỉ đọc 1 test; đề có số test <code>T</code> mà code đọc đến EOF; đề kết thúc bằng <code>0 0</code> mà code không dừng</td></tr>
+<tr><td>10</td><td><b>Hiểu sai đề</b></td><td>Đọc lại đề, tự giải tay sample. Nếu ra khác đáp án mẫu → bạn hiểu sai đề, chưa phải lỗi code</td></tr>
+</table>
+
+<h3>5.2. Dùng diff của <code>run.sh</code></h3>
+<pre class="term"><span class="e">❌ WA - khác ở:</span>
+--- của bạn
++++ đáp án
+@@ -1,3 +1,3 @@        <span class="d">← vùng khác nhau: từ dòng 1, dài 3 dòng</span>
+ 2                      <span class="d">← dòng bắt đầu bằng dấu cách: giống nhau</span>
+<span class="e">--2</span>                     <span class="d">← dấu "-" là của BẠN: in ra "-2"</span>
+<span class="h">+2</span>                      <span class="d">← dấu "+" là ĐÁP ÁN: phải là "2"</span>
+ 100</pre>
+<p>Ở ví dụ này test 2 sai: bạn in <code>-2</code>, đáp án là <code>2</code> → nghi ngay "thứ tự hai số bị đảo" (lỗi #4) hoặc "quên lấy trị tuyệt đối".</p>
+
+<h3>5.3. Khi sample đúng mà nộp vẫn WA</h3>
+<ol>
+<li>Tự viết thêm test biên (mục 5.1 #4) và tính tay đáp án.</li>
+<li>Vào <b>uDebug</b> (nút trên trang bài của vjudge hoặc udebug.com): cộng đồng đăng sẵn input khó và đáp án đúng cho bài UVa. Copy input vào <code>in.txt</code>, đáp án vào <code>out.txt</code>, chạy <code>run.sh</code>.</li>
+<li>Kiểm tra lại giới hạn trong đề → có cần <code>long long</code> không.</li>
+<li>Kiểm tra định dạng: dòng trống cuối, dấu cách cuối dòng (một số judge khắt khe).</li>
+</ol>
+</section>
+
+<!-- ============================ 6 ============================ -->
+<section>
+<h2>6. Quá thời gian (TLE) và chương trình bị treo</h2>
+
+<h3>6.1. Phân biệt</h3>
+<table>
+<tr><th style="width:28%">Hiện tượng</th><th style="width:30%">Nguyên nhân</th><th>Cách xử lý</th></tr>
+<tr><td>Chạy trên máy <b>không bao giờ dừng</b> với cả sample nhỏ</td><td>Vòng lặp vô hạn, hoặc chương trình đang <b>chờ input</b></td><td>Mục 6.2</td></tr>
+<tr><td>Sample nhỏ chạy nhanh, judge báo TLE</td><td>Thuật toán quá chậm với input lớn</td><td>Mục 6.3</td></tr>
+</table>
+
+<h3>6.2. Chương trình bị treo</h3>
+<ol>
+<li>Bấm <kbd>Ctrl</kbd>+<kbd>C</kbd> trong terminal để dừng.</li>
+<li><b>Có phải đang chờ input không?</b> Nếu chạy không kèm <code>in.txt</code>, chương trình đang đợi bạn gõ. <code>run.sh</code> báo <i>"(Không có in.txt → nhập tay...)"</i> nếu thiếu file.</li>
+<li><b>Đọc warning</b>: <code>statement has no effect</code> (ví dụ <code>n / 10;</code>) là thủ phạm kinh điển.</li>
+<li><b>Dùng debugger</b>: chạy <kbd>F5</kbd>, đợi vài giây, bấm nút <b>Pause</b> (‖) trên thanh debug → VS Code dừng ngay dòng đang lặp. Xem biến điều khiển vòng lặp có thay đổi qua mỗi vòng không.</li>
+</ol>
+<div class="box tip"><b class="t">Câu hỏi kiểm tra mọi vòng <code>while</code></b>
+"Biến trong điều kiện có <b>thay đổi</b> bên trong vòng lặp không, và có <b>tiến dần</b> tới điều kiện dừng không?"
+Ví dụ <code>while (n != 0)</code> mà bên trong không có lệnh nào làm <code>n</code> thay đổi → chắc chắn vô hạn.</div>
+
+<h3>6.3. Ước lượng tốc độ thuật toán</h3>
+<p>Quy tắc ngón tay cái: máy judge chạy khoảng <b>10<sup>8</sup> phép tính đơn giản mỗi giây</b>.</p>
+<table>
+<tr><th>Giới hạn n</th><th>Độ phức tạp chấp nhận được</th><th>Ví dụ</th></tr>
+<tr><td>n ≤ 10</td><td>O(n!)</td><td>Thử mọi hoán vị</td></tr>
+<tr><td>n ≤ 20</td><td>O(2<sup>n</sup>)</td><td>Thử mọi tập con</td></tr>
+<tr><td>n ≤ 500</td><td>O(n<sup>3</sup>)</td><td>3 vòng lặp lồng nhau</td></tr>
+<tr><td>n ≤ 5 000</td><td>O(n<sup>2</sup>)</td><td>2 vòng lặp lồng nhau</td></tr>
+<tr><td>n ≤ 10<sup>6</sup></td><td>O(n log n)</td><td><code>sort</code>, tìm kiếm nhị phân, <code>map</code></td></tr>
+<tr><td>n ≤ 10<sup>8</sup></td><td>O(n)</td><td>1 vòng lặp</td></tr>
+<tr><td>n ≤ 10<sup>18</sup></td><td>O(log n) hoặc O(1)</td><td>Công thức toán, chia đôi</td></tr>
+</table>
+
+<h3>6.4. TLE do nhập/xuất chậm</h3>
+<ul>
+<li>Luôn có <code>ios::sync_with_stdio(false); cin.tie(nullptr);</code> (đã có trong template).</li>
+<li>Dùng <code>'\n'</code> thay vì <code>endl</code>. <code>endl</code> ép đẩy bộ đệm ra màn hình mỗi lần → chậm khi in nhiều dòng.</li>
+<li>Không trộn <code>cin</code>/<code>cout</code> với <code>scanf</code>/<code>printf</code> sau khi đã tắt đồng bộ.</li>
+</ul>
+</section>
+
+<!-- ============================ 7 ============================ -->
+<section>
+<h2>7. Debugger trong VS Code</h2>
+<p>Debugger cho phép <b>dừng chương trình ở bất kỳ dòng nào</b> và xem giá trị mọi biến tại thời điểm đó. Đây là công cụ chính để tìm lỗi WA, và cũng là cách tốt nhất để <b>hiểu</b> đệ quy, con trỏ, vòng lặp lồng nhau khi học LT1/LT2.</p>
+
+<h3>7.1. Bắt đầu một phiên debug</h3>
+<ol>
+<li>Mở file <code>sol.cpp</code> cần debug (có <code>in.txt</code> cùng thư mục).</li>
+<li>Click vào <b>lề trái số dòng</b> → hiện chấm đỏ (breakpoint).</li>
+<li>Thanh bên trái → icon <b>Run and Debug</b> (▷ có con bọ) → dropdown trên cùng chọn <b>"Debug (đọc in.txt)"</b>. VS Code nhớ lựa chọn này cho lần sau.</li>
+<li>Bấm <kbd>F5</kbd>. VS Code tự compile (bản debug, có sanitizer) rồi chạy, dừng ở breakpoint.</li>
+</ol>
+<div class="box tip"><b class="t">Hai cấu hình đã có trong <code>.vscode/launch.json</code></b>
+<b>Debug (đọc in.txt)</b> — input lấy từ <code>in.txt</code> cùng thư mục. Dùng 95% thời gian.<br>
+<b>Debug (nhập tay)</b> — gõ input vào tab Terminal. Dùng khi muốn thử nhanh một input nhỏ.</div>
+
+<h3>7.2. Các vùng trên màn hình debug</h3>
+<table>
+<tr><th style="width:26%">Vùng</th><th>Dùng để</th></tr>
+<tr><td><b>Dòng tô vàng</b> + mũi tên ở lề</td><td>Dòng <b>sắp</b> chạy (chưa chạy). Giá trị biến bạn thấy là <b>trước</b> khi dòng này thực hiện</td></tr>
+<tr><td><b>VARIABLES → Locals</b></td><td>Tất cả biến cục bộ và giá trị hiện tại. Bấm <code>&gt;</code> để mở vector/mảng/struct. Biến vừa đổi giá trị được tô sáng</td></tr>
+<tr><td><b>WATCH</b></td><td>Theo dõi <b>biểu thức tự chọn</b>: bấm <code>+</code>, gõ <code>a + b</code>, <code>sum / n</code>, <code>v[i]</code>, <code>v.size()</code>. Cập nhật mỗi lần dừng</td></tr>
+<tr><td><b>CALL STACK</b></td><td>Chuỗi hàm đang gọi nhau. Với đệ quy, mỗi dòng là một lần gọi — click vào để xem biến của lần gọi đó</td></tr>
+<tr><td><b>BREAKPOINTS</b></td><td>Danh sách breakpoint; tick để bật/tắt tạm. Tick <b>All C++ Exceptions</b> để dừng ngay khi có exception (ví dụ <code>stoi</code> lỗi, <code>.at()</code> ngoài phạm vi)</td></tr>
+<tr><td><b>DEBUG CONSOLE</b></td><td>Gõ lệnh để xem giá trị (mục 7.6)</td></tr>
+<tr><td><b>Thanh nút debug</b> (trên cùng)</td><td>▷ Tiếp tục · ‖ Tạm dừng · ↷ Bước qua · ↓ Bước vào · ↑ Bước ra · ⟳ Chạy lại · ■ Dừng</td></tr>
+</table>
+
+<h3>7.3. Phím tắt</h3>
+<table>
+<tr><th style="width:22%">Phím</th><th style="width:25%">Tên</th><th>Tác dụng — khi nào dùng</th></tr>
+<tr><td><kbd>F9</kbd></td><td>Bật/tắt breakpoint</td><td>Đặt breakpoint ở dòng có con trỏ (giống click lề)</td></tr>
+<tr><td><kbd>F5</kbd></td><td>Start / Continue</td><td>Bắt đầu debug; khi đang dừng thì chạy tiếp tới breakpoint kế tiếp</td></tr>
+<tr><td><kbd>F10</kbd></td><td>Step Over</td><td>Chạy 1 dòng. Gặp lời gọi hàm thì chạy <b>cả hàm</b> rồi dừng ở dòng sau. Dùng nhiều nhất</td></tr>
+<tr><td><kbd>F11</kbd></td><td>Step Into</td><td>Nếu dòng hiện tại gọi hàm bạn tự viết → <b>đi vào bên trong</b> hàm đó. Dùng cho đệ quy, hàm tự viết. (Đi vào hàm thư viện như <code>sort</code> thì bấm <kbd>Shift+F11</kbd> để ra)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>F11</kbd></td><td>Step Out</td><td>Chạy hết hàm hiện tại, dừng ở chỗ đã gọi nó</td></tr>
+<tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F5</kbd></td><td>Restart</td><td>Chạy lại từ đầu (sau khi sửa code: compile lại tự động)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>F5</kbd></td><td>Stop</td><td>Kết thúc debug. Lưu ý: output còn trong bộ đệm sẽ bị mất</td></tr>
+<tr><td>Chuột phải dòng → <b>Run to Cursor</b></td><td></td><td>Chạy tới dòng đó mà không cần đặt breakpoint</td></tr>
+</table>
+
+<h3>7.4. Breakpoint nâng cao (chuột phải vào chấm đỏ → <b>Edit Breakpoint</b>)</h3>
+<table>
+<tr><th style="width:22%">Loại</th><th style="width:30%">Ví dụ</th><th>Dùng khi</th></tr>
+<tr><td><b>Expression</b> (có điều kiện)</td><td><code>i == 37</code> &nbsp;·&nbsp; <code>x &lt; 0</code> &nbsp;·&nbsp; <code>sum &gt; 1000000</code></td><td>Vòng lặp chạy hàng nghìn lần, chỉ muốn dừng ở lần đáng ngờ. Không phải bấm <kbd>F5</kbd> 37 lần</td></tr>
+<tr><td><b>Hit Count</b></td><td><code>5</code></td><td>Dừng ở lần thứ 5 chạy qua dòng này (ví dụ test thứ 5 bị sai)</td></tr>
+<tr><td><b>Log Message</b> (logpoint, chấm hình thoi)</td><td><code>i={i} sum={sum}</code></td><td>Không dừng, chỉ in giá trị ra Debug Console mỗi lần chạy qua. Giống thêm <code>cout</code> mà không phải sửa code</td></tr>
+</table>
+
+<h3>7.5. Xem mảng, vector, con trỏ</h3>
+<table>
+<tr><th style="width:34%">Muốn xem</th><th style="width:30%">Gõ vào WATCH</th><th>Ghi chú</th></tr>
+<tr><td><code>vector&lt;int&gt; v</code></td><td><code>v</code></td><td>Mở rộng để thấy từng phần tử và kích thước</td></tr>
+<tr><td>Một phần tử</td><td><code>v[i]</code>, <code>a[i][j]</code></td><td>Cập nhật theo <code>i</code> hiện tại</td></tr>
+<tr><td>Mảng tĩnh <code>int a[100]</code></td><td><code>a</code></td><td>Hiện cả 100 phần tử</td></tr>
+<tr><td>5 phần tử đầu qua con trỏ <code>int *p</code></td><td><code>*p@5</code></td><td>Cú pháp của gdb: <code>*con_trỏ@số_lượng</code>. Dùng khi học mảng động ở LT2</td></tr>
+<tr><td>Giá trị con trỏ trỏ tới</td><td><code>*p</code>, <code>p-&gt;next</code></td><td>Danh sách liên kết, cây (LT2, CTDL)</td></tr>
+<tr><td>Kiểu <code>char</code> dưới dạng số</td><td><code>(int)c</code></td><td>Xem mã ASCII</td></tr>
+</table>
+
+<h3>7.6. Debug Console</h3>
+<p>Khi đang dừng, gõ biểu thức vào ô dưới cùng của tab <b>Debug Console</b> rồi Enter để tính ngay, ví dụ <code>a + b</code>, <code>v.size()</code>.
+Gõ lệnh gdb trực tiếp bằng tiền tố <code>-exec</code>: <code>-exec p v</code> (in biến), <code>-exec info locals</code> (in mọi biến cục bộ).</p>
+
+<h3>7.7. Ba tình huống debug điển hình</h3>
+<h4>a) Vòng lặp tính sai</h4>
+<p>Breakpoint ở dòng đầu thân vòng lặp → thêm vào WATCH các biến quan trọng (<code>i</code>, <code>sum</code>, <code>mx</code>) → <kbd>F5</kbd> từng vòng, so với bảng tính tay. Vòng đầu tiên lệch → lỗi ở đó.</p>
+<h4>b) Đệ quy sai</h4>
+<p>Breakpoint ở dòng đầu hàm đệ quy → <kbd>F5</kbd> nhiều lần, nhìn <b>CALL STACK</b> dài ra (đi xuống) rồi ngắn lại (quay lên). Kiểm tra: có đi đến trường hợp cơ sở không? Giá trị trả về ở mỗi tầng có đúng không? Dùng <kbd>Shift+F11</kbd> để xem một tầng trả về gì.</p>
+<h4>c) Chương trình bị treo</h4>
+<p><kbd>F5</kbd> (không cần breakpoint) → đợi 2–3 giây → bấm <b>‖ Pause</b> → dòng tô vàng là chỗ đang lặp. Xem biến điều khiển vòng lặp; <kbd>F10</kbd> vài lần xem nó có đổi không.</p>
+
+<div class="box warn"><b class="t">Lưu ý: output hiện ra trễ khi debug</b>
+Template dùng <code>sync_with_stdio(false)</code> và <code>'\n'</code> nên <code>cout</code> gom output vào bộ đệm, chưa in ngay. Khi debug, đừng dựa vào terminal để xem kết quả — <b>nhìn vào VARIABLES/WATCH</b>. Nếu cần thấy ngay thì in bằng <code>cerr</code> (không có bộ đệm).</div>
+
+<div class="box tip"><b class="t">Khi debug không dừng ở breakpoint</b>
+① Kiểm tra đã chọn đúng cấu hình "Debug (đọc in.txt)" chưa; ② chương trình có thể kết thúc trước khi tới dòng đó (ví dụ <code>in.txt</code> rỗng, vòng lặp không chạy lần nào); ③ breakpoint màu xám rỗng = dòng không có code thực thi (dòng trống, dòng chỉ có <code>{</code>) — đặt ở dòng khác.</div>
+</section>
+
+<!-- ============================ 8 ============================ -->
+<section>
+<h2>8. Debug không cần debugger</h2>
+<p>Đôi khi in ra màn hình nhanh hơn mở debugger, đặc biệt lúc thi (môi trường thi có thể không có debugger quen thuộc).</p>
+
+<h3>8.1. In ra <code>cerr</code> trong khối <code>#ifdef LOCAL</code></h3>
+<pre>#ifdef LOCAL
+cerr &lt;&lt; "i = " &lt;&lt; i &lt;&lt; ", sum = " &lt;&lt; sum &lt;&lt; '\n';
+#endif</pre>
+<ul>
+<li><code>cerr</code> in ra luồng lỗi: <b>không bị gom bộ đệm</b>, và <code>run.sh</code> không đem nó đi so với đáp án.</li>
+<li><code>#ifdef LOCAL</code>: chỉ chạy trên máy bạn (đã có cờ <code>-DLOCAL</code>). Lỡ quên xóa khi nộp bài cũng không bị WA.</li>
+<li>Gõ nhanh bằng snippet <code>dbg</code> + <kbd>Tab</kbd>.</li>
+</ul>
+
+<h3>8.2. In cả vector</h3>
+<pre>#ifdef LOCAL
+for (int x : v) cerr &lt;&lt; x &lt;&lt; ' ';
+cerr &lt;&lt; '\n';
+#endif</pre>
+
+<h3>8.3. <code>assert</code> — tự kiểm tra giả định</h3>
+<pre>assert(n &gt;= 1 &amp;&amp; n &lt;= 100000);   // nếu sai: dừng ngay, báo dòng và điều kiện
+assert(lo &lt;= hi);</pre>
+<p>Khi điều kiện sai, chương trình dừng với thông báo <code>Assertion `lo &lt;= hi' failed</code> kèm số dòng (exit code 134).
+Dùng để kiểm tra những điều bạn <i>tin</i> là luôn đúng — nếu niềm tin sai, bạn biết ngay chỗ nào.</p>
+
+<h3>8.4. Giảm input — chia đôi để tìm test sai</h3>
+<p>Khi <code>in.txt</code> có nhiều test và kết quả sai: xóa bớt một nửa số test → còn sai không? Tiếp tục chia đôi cho đến khi còn <b>một test nhỏ nhất vẫn sai</b>. Debug trên test đó sẽ nhanh hơn rất nhiều.</p>
+</section>
+
+<!-- ============================ 9 ============================ -->
+<section>
+<h2>9. Quy trình tìm lỗi có hệ thống</h2>
+<div class="flow">./run.sh sol.cpp
+   │
+   ├─ ❌ Compile lỗi ──▶ đọc dòng error ĐẦU TIÊN ──▶ sửa ──▶ chạy lại
+   │
+   ├─ có warning ─────▶ đọc từng warning (mục 3) ──▶ sửa hết, kể cả khi đã AC
+   │
+   ├─ 💥 RE ──────────▶ tìm "file.cpp:DÒNG" trong khối đỏ (mục 4) ──▶ tra bảng 4.3
+   │
+   ├─ treo ───────────▶ Ctrl+C ──▶ warning? ──▶ F5 + Pause (mục 6.2)
+   │
+   ├─ ❌ WA ──────────▶ ① có "runtime error:" trong terminal không? (tràn số)
+   │                    ② danh sách 10 lỗi (mục 5.1)
+   │                    ③ thu nhỏ input ──▶ tính tay ──▶ F5 so từng dòng
+   │
+   └─ ✅ AC ──────────▶ thêm test biên ──▶ vẫn AC? ──▶ nộp bài</div>
+
+<h3>Bốn bước tìm lỗi WA bằng debugger</h3>
+<table>
+<tr><th style="width:5%">#</th><th style="width:25%">Bước</th><th>Làm gì</th></tr>
+<tr><td>1</td><td><b>Thu nhỏ</b></td><td>Tìm input nhỏ nhất vẫn cho kết quả sai (mục 8.4)</td></tr>
+<tr><td>2</td><td><b>Tính tay</b></td><td>Với input đó, ghi ra giấy giá trị đúng của các biến chính qua từng bước</td></tr>
+<tr><td>3</td><td><b>So sánh</b></td><td>Đặt breakpoint, <kbd>F10</kbd> từng dòng, so giá trị trong Locals/Watch với giấy</td></tr>
+<tr><td>4</td><td><b>Khoanh vùng</b></td><td><b>Dòng đầu tiên</b> mà giá trị khác giấy → lỗi ở dòng đó hoặc ngay trước nó</td></tr>
+</table>
+
+<div class="box err"><b class="t">Đừng sửa mò</b>
+Đổi thử <code>&lt;</code> thành <code>&lt;=</code>, thêm <code>+1</code>, <code>-1</code> rồi chạy lại xem có đúng không — có thể tình cờ ra AC, nhưng bạn không học được gì và lần sau gặp lại vẫn sai.
+Luôn trả lời được câu hỏi: <b>"Vì sao dòng này sai và vì sao cách sửa này đúng?"</b></div>
+
+<div class="box ok"><b class="t">Ghi nhật ký lỗi</b>
+Mỗi bài, ghi lỗi đã gặp vào dòng <code>// Lỗi đã gặp:</code> ở đầu <code>sol.cpp</code>. Sau 20–30 bài, đọc lại sẽ thấy mình hay mắc đúng vài lỗi lặp đi lặp lại — đó là những thứ cần kiểm tra đầu tiên mỗi lần WA.</div>
+</section>
+
+<!-- ============================ 10 ============================ -->
+<section>
+<h2>10. Bài tập thực hành</h2>
+<p>Thư mục <code>~/code/cp-practice/learn-debug/</code> có 6 chương trình chứa <b>lỗi cố ý</b>, mỗi bài kèm <code>in.txt</code> và <code>out.txt</code>.
+Nhiệm vụ: <b>sửa cho đến khi <code>./run.sh</code> báo ✅ AC</b>. Chỉ sửa lỗi, không viết lại từ đầu.</p>
+
+<table>
+<tr><th style="width:17%">Bài</th><th style="width:16%">Loại lỗi</th><th style="width:27%">Kỹ năng</th><th>Xem lại mục</th></tr>
+<tr><td><code>ex1-compile</code></td><td>CE (3 lỗi)</td><td>Đọc lỗi đầu tiên, sửa từng cái</td><td>2.2, 2.3</td></tr>
+<tr><td><code>ex2-warning</code></td><td>Warning (2 lỗi)</td><td>Đọc warning</td><td>3</td></tr>
+<tr><td><code>ex3-runtime</code></td><td>RE</td><td>Đọc báo cáo ASan</td><td>4.1, 4.3</td></tr>
+<tr><td><code>ex4-overflow</code></td><td>Tràn số</td><td>Tìm dòng <code>runtime error</code> khi bị WA</td><td>4.2, 5.1 #1</td></tr>
+<tr><td><code>ex5-logic</code></td><td>WA (2 lỗi)</td><td><b>Debugger</b>: Locals, Watch</td><td>5.1 #5 #6, 7.7a, 9</td></tr>
+<tr><td><code>ex6-infinite</code></td><td>Treo (2 lỗi)</td><td><kbd>Ctrl+C</kbd>, nút Pause, test biên</td><td>6.2, 7.7c</td></tr>
+</table>
+
+<h3>Lệnh chạy</h3>
+<pre>cd ~/code/cp-practice
+./run.sh learn-debug/ex1-compile/sol.cpp      # thay ex1-compile bằng tên bài khác</pre>
+<p>Riêng <b>ex5</b>: mở <code>sol.cpp</code> → đặt breakpoint trong vòng <code>for</code> → <kbd>F5</kbd> → chọn "Debug (đọc in.txt)".</p>
+
+<h3>Gợi ý (chỉ đọc khi bí quá 15 phút)</h3>
+<table>
+<tr><th style="width:17%">Bài</th><th>Gợi ý</th></tr>
+<tr><td>ex1</td><td>Có 3 lỗi. Sửa lỗi đầu, compile lại mới thấy lỗi tiếp. Dòng <code>string s = 5;</code> có cần cho đề không?</td></tr>
+<tr><td>ex2</td><td>Compiler đã nói thẳng cả 2 lỗi. Biến đếm không gán giá trị đầu thì bắt đầu đếm từ đâu?</td></tr>
+<tr><td>ex3</td><td>Vector có <code>n</code> phần tử thì chỉ số hợp lệ từ mấy đến mấy?</td></tr>
+<tr><td>ex4</td><td><code>int</code> chứa tối đa ≈ 2,1 tỷ. Biến nào cần đổi kiểu? Chỉ một biến thôi sao?</td></tr>
+<tr><td>ex5</td><td>Xem <code>mx</code> qua từng vòng: giá trị ban đầu có hợp lý với dãy toàn số âm? Thêm <code>sum / n</code> vào Watch và so với tính tay.</td></tr>
+<tr><td>ex6</td><td>Đọc warning trước. Sửa xong còn 1 lỗi: chương trình in gì khi <code>n = 0</code>, đề muốn in gì?</td></tr>
+</table>
+</section>
+
+<!-- ============================ 11 ============================ -->
+<section>
+<h2>11. Bảng tra nhanh</h2>
+<div class="two">
+<div>
+<h4>Gặp lỗi compile</h4>
+<ul class="small">
+<li>Chỉ đọc lỗi <b>đầu tiên</b>, sửa, compile lại</li>
+<li>Dòng báo lỗi trông đúng → nhìn <b>dòng trên</b></li>
+<li><code>expected ‘;’</code> / <code>expected initializer</code> → thiếu <code>;</code></li>
+<li><code>not declared in this scope</code> → sai tên / sai phạm vi</li>
+<li><code>expected ‘}’ at end of input</code> → thiếu <code>}</code></li>
+<li><code>no match for ‘operator&lt;&lt;’</code> → không in thẳng vector/struct</li>
+<li><code>undefined reference</code> → thiếu <code>main</code> / thiếu thân hàm</li>
+</ul>
+<h4>Warning nguy hiểm nhất</h4>
+<ul class="small">
+<li><code>-Wparentheses</code> → <code>=</code> thay vì <code>==</code></li>
+<li><code>-Wmaybe-uninitialized</code> → biến chưa gán</li>
+<li><code>-Wunused-value</code> → <code>n / 10;</code> quên gán</li>
+<li><code>-Wempty-body</code> → <code>if (...);</code></li>
+<li><code>-Wreturn-type</code> → hàm thiếu <code>return</code></li>
+</ul>
+<h4>Gặp RE — tìm <code>file.cpp:DÒNG</code></h4>
+<ul class="small">
+<li><code>*-buffer-overflow</code> → ngoài mảng/vector</li>
+<li><code>stack-overflow</code> → đệ quy vô hạn / mảng cục bộ quá lớn</li>
+<li><code>division by zero</code> / exit 136 → chia 0</li>
+<li><code>SEGV ... 0x000000000000</code> → con trỏ null</li>
+<li>exit 139 → Segmentation fault</li>
+</ul>
+</div>
+<div>
+<h4>Gặp WA — kiểm tra theo thứ tự</h4>
+<ol class="small">
+<li>Terminal có <code>runtime error:</code>? → tràn số → <code>long long</code></li>
+<li>Test đầu đúng, test sau sai? → quên <b>reset biến</b></li>
+<li>Định dạng: dấu cách, dòng trống, <code>Case #</code></li>
+<li>Biên: <code>0</code>, <code>1</code>, âm, lớn nhất, đảo thứ tự</li>
+<li><code>mx = 0</code> với số âm</li>
+<li>Chia nguyên: <code>(double)sum / n</code></li>
+<li><code>cin &gt;&gt;</code> rồi <code>getline</code> → <code>cin.ignore()</code></li>
+<li>uDebug lấy test khó</li>
+<li>Thu nhỏ input → tính tay → <kbd>F5</kbd></li>
+</ol>
+<h4>Bị treo / TLE</h4>
+<ul class="small">
+<li><kbd>Ctrl+C</kbd> để dừng</li>
+<li>Thiếu <code>in.txt</code> → đang chờ nhập</li>
+<li><kbd>F5</kbd> → <b>‖ Pause</b> → xem dòng tô vàng</li>
+<li>~10<sup>8</sup> phép tính / giây</li>
+<li><code>'\n'</code> thay <code>endl</code></li>
+</ul>
+<h4>Phím debugger</h4>
+<table class="small">
+<tr><td><kbd>F9</kbd></td><td>Breakpoint</td></tr>
+<tr><td><kbd>F5</kbd></td><td>Chạy / tiếp tục</td></tr>
+<tr><td><kbd>F10</kbd></td><td>Bước qua</td></tr>
+<tr><td><kbd>F11</kbd></td><td>Bước vào hàm</td></tr>
+<tr><td><kbd>Shift+F11</kbd></td><td>Bước ra khỏi hàm</td></tr>
+<tr><td><kbd>Shift+F5</kbd></td><td>Dừng</td></tr>
+<tr><td>Chuột phải chấm đỏ</td><td>Breakpoint có điều kiện</td></tr>
+<tr><td>WATCH <code>*p@5</code></td><td>Xem mảng qua con trỏ</td></tr>
+</table>
+</div>
+</div>
+</section>
+
+</body>
+</html>
